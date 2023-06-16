@@ -1,8 +1,8 @@
 # EscapeGameA11y
 
 
-File structure
-
+## File structure
+```
 |---assets
 |   |---css
 |   |---fonts
@@ -13,3 +13,4 @@ File structure
 |---product.html (information sur le produit) 
 |---overview.html (page récapitulative)
 |---Purchase-confirmation.html (validation d'achat)
+```
