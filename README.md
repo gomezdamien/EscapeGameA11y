@@ -1,5 +1,7 @@
 # EscapeGameA11y
 
+URL de l'escape game : https://damiengomez.github.io/EscapeGameA11y/
+
 Le site comportera 5 pages et 1 fichier au format PDF :
 
 ## Landing page
