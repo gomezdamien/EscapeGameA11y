@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900" rel="stylesheet">
+    <link href="assets/css/escape-game-noir.css" rel="stylesheet">
+  </head>
+  <head>
+    <title>Nom accessible des éléments ciblés au clavier</title>
+    <style>
+      #text-bloc {
+        border: 2px solid #000000;
+        padding: 20px;
+        background-color: #ffffff;
+        width: 400px;
+        height: 100px;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+      }
+      #container {
+        display: grid;
+        grid-template-columns: line;
+        gap: 10px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      }
+  
+      #question-button {
+        width: 30px;
+        height: 30px;
+        background-color: rgb(255, 208, 1);
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+      }
+  
+      .text-field {
+        display: outside;
+        color: #fceb00;
+        background-color: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <nav role="navigation" class="navbar navbar-expand-sm bg-light border-top" aria-label="Choix de langue et devise">
+        <div class="container justify-content-end">
+          <ul class="nav">
+            <li class="dropdown">
+              <a class="btn btn-secondary btn-sm dropdown-toggle mx-2" href="#" aria-current="true" role="button" data-bs-toggle="dropdown" aria-label="Version Française">Fr</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#" lang="en" hreflang="en" aria-label="English version">En</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="btn btn-secondary btn-sm dropdown-toggle ms-1" href="#" aria-current="true" role="button" data-bs-toggle="dropdown" aria-label="Afficher les prix en Euro"><abbr title="Euro">EUR</abbr></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#" lang="en" hreflang="en" aria-label="Afficher les prix en Great Britain Pound"><abbr lang="en" title="Great Britain Pound">GBP</abbr></a></li>
+                  <li><a class="dropdown-item" href="#" lang="en" hreflang="en" aria-label="Afficher les prix en United States Dollar"><abbr lang="en" title="United States Dollar">USD</abbr></a></li>
+                  <li><a class="dropdown-item" href="#" lang="en" hreflang="en" aria-label="Afficher les prix en Canadian Dollar"><abbr lang="en" title="Canadian Dollar">CAD</abbr></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="container">
+          <button id="question-button" i class="bi bi-question-circle-fill" role="img" aria-label="aide" ></button>
+        </div> 
+        <script>
+          var clickCount = 0;
+          var container = document.getElementById('container');
+          var questionButton = document.getElementById('question-button');
+          var texts = ['texte numéro 1', 'texte numéro 2', 'texte numéro 3'];
+      
+          questionButton.addEventListener('click', function() {
+            clickCount++;
+      
+            if (clickCount <= texts.length) {
+              var textField = document.createElement('input');
+              textField.setAttribute('type', 'text');
+              textField.className = 'text-field';
+              textField.placeholder = texts[clickCount - 1];
+      
+              container.appendChild(textField);
+            }
+          });
+        </script>
+        <div id="text-bloc"></div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var textBloc = document.getElementById('text-bloc');
+      
+            function updateTextBloc(event) {
+              var target = event.target;
+              var accessibleName = target.getAttribute('aria-label') || target.innerText || target.value || '';
+      
+              textBloc.textContent = accessibleName;
+            }
+      
+            document.addEventListener('focusin', updateTextBloc);
+            document.addEventListener('focusout', function() {
+              textBloc.textContent = '';
+            });
+          });
+        </script>  
+      </nav>
+      <nav role="navigation" class="navbar navbar-expand-lg py-3" aria-label="Navigation principale">
+        <div class="positioned">
+          <a class="positioned" href="./" ><span class="fw-bold">Inscription</span></a>
+          <div class="collapse navbar-collapse" id="main-nav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item dropdown position-static">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">La boutique</a>
+                <div class="dropdown-menu w-100 mt-0 border-0 rounded-0 pb-2 text-bg-light">
+                  <div class="container">
+                    <div class="row row-cols-1">
+                      <div class="col mb-3">
+                        <p class="fw-bold text-uppercase fs-6">Newsletter</p>
+                        <p>Inscrivez-vous à notre newsletter et recevez une réduction de 10% sur votre première formation.</p>
+                        <form>
+                          <div class="input-group mb-3">
+                            <div class="form-floating">
+                              <input type="email" class="form-control" id="newsletter" required="required" placeholder="">
+                              <label for="newsletter">Adresse email</label>
+                            </div>
+                            <button class="btn btn-dark" type="submit">S'inscrire <span class="visually-hidden">à la newsletter</span></button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="bg-light">
+      <h1 class="visually-hidden">Commander</h1>
+      <div class="container py-5">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col-lg-8 mb-3 order-2 order-lg-1">
+            <form class="needs-validation" novalidate>
+              <ul class="nav nav-tabs nav-tabs-light">
+                 <li class="nav-item">
+                  <h2 class="nav-link w-bold text-uppercase active" href="#" aria-current="page">Inscription</h2>
+                 </li>
+               </ul>       
+                    <!-- <h2 class="fw-bold text-uppercase">Adresse de facturation</h2> -->
+                    <div class="row gy-3 py-5">
+                      <div class="col-6">
+                        <span class="form-label">Prénom</label>
+                        <input type="text" class="formulaire" id="first name" aria-label="Prénom" required="required" value="">
+                        <div class="invalid-feedback">
+                        Ce champ ne peut pas être vide
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <span class="form-label">Nom</label>
+                        <input type="text" aria-label="Nom" class="formulaire" id="last name" required="required" value="">
+                        <div class="invalid-feedback">
+                        Ce champ ne peut pas être vide
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <span class="form-label">Nom de jeune fille</label>
+                        <input type="text" aria-label="Nom" class="formulaire" id="last name" value="">
+                        <div class="invalid-feedback">
+                        Ce champ ne peut pas être vide
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="mail" aria-invalid="true" aria-label="email" class="formulaire" id="mail" required="required" >
+                        <div class="invalid-feedback">
+                          oops
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="email" class="form-label">Vérification de l'Email *</label>
+                        <input type="mail" aria-invalid="true" aria-label="email" class="formulaire" id="mail" required="required" >
+                        <div class="invalid-feedback">
+                          oops
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="adresse" aria-label="adresse" class="form-label">Adresse *</label>
+                        <input type="text" class="formulaire" aria-label="édition vide" id="address" required="required">
+                        <div class="invalid-feedback">
+                          erreur de saisie, veuillez entrer une adresse valide
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div for="adresse" class="form-label" aria-label="adresse">Adresse complémentaire</label>
+                        <input type="text" class="formulaire" aria-label="édition vide" id="address" required="required">
+                        <div class="invalid-feedback">
+                          erreur de saisie, veuillez entrer une adresse valide
+                        </div>
+                      <div class="col-5">
+
+                        <label for="Pays" required="required" class="form-label">Pays</label>
+                        <select class="form-select" id="country" aria-label="sélectionner">
+                          <option aria-label="Bretagne" >Bretagne</option>
+                          <option aria-label="France">France</option>
+                          <option aria-label="Belgique">Belgique</option>
+                          <option aria-label="Listenbourg">Listenbourg</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Sélectionner un pays
+                        </div>
+                      </div>
+
+                      <div class="col-4">
+                        <label for="Région" required="required" class="form-label">Région *</label>
+                        <select class="form-select" id="state" aria-label="sélectionner">
+                          <option>Bretagne libre</option>
+                          <option>Autre</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          erreur
+                        </div>
+                      </div>
+
+                      <form>
+                        <div>
+                          <input type="checkbox" id="conditionalcheck" name="subscribe" required="required" value="">
+                          <label for="subscribeNews" aria-label="Avez-vous lu les CGU ?">Avez-vous lu les CGU ?</label>
+                        </div>
+
+                      <div class="col-3">
+                        <label for="Code postal" aria-label="code postal" class="formulaire">Code postal *</label>
+                        <input type="text" class="form-control" required="required" id="zip">
+                        <div class="invalid-feedback">
+                          Veuillez indiquer un code postal valide
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Valider</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="border-top" role="contentinfo">
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/validate.js"></script>
+    <script src="assets/js/slider.js"></script>
+  </body>
+</html>
