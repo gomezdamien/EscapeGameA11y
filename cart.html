@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" />
+ 
+ <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="dist/js/bootstrap.bundle.min.js" ></script> 
+
+  <title>Panier - EscapeGame A11y</title>
+
+</head>
+
+<body>    
+    <main class="container-md content">        
+        <div class="container py-5">
+            <div class="">
+              <div class="fw-bold text-uppercase">Mon panier <span class="badge text-bg-dark rounded-pill align-top">3 <span class="visually-hidden">articles dans le panier</span></span></h2>
+                <ul class="list-group my-5">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <p class="fw-bold product-name text-uppercase my-0">Devenez Growth Hacker en 4 semaines</p>
+                    <small class="text-muted">22 cours vidéo avec les outils et méthodes des meilleurs, 4 semaines d’accompagnement avec un mentor expérimenté</small>
+                  </div>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong>$1999,99</strong>
+                </li>
+              </ul>
+              <form class="card p-1 mb-5">
+                <div class="input-group">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="promo-code" required="required" placeholder="Code promo">
+                    <label for="promo-code">Code promo</label>
+                  </div>
+                  <button class="btn btn-dark" type="submit">Appliquer <span class="visually-hidden">le code</span></button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
