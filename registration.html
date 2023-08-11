@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900" rel="stylesheet">
-    <link href="assets/css/escape-game-noir.css" rel="stylesheet">
+    <link href="assets/css/escape-game.css" rel="stylesheet">
   </head>
   <head>
     <title>Nom accessible des éléments ciblés au clavier</title>
@@ -188,7 +188,7 @@
 
                       <div class="col-12">
                         <label for="email" class="form-label">Vérification de l'Email *</label>
-                        <input type="mail" aria-invalid="true" aria-label="email" class="formulaire" id="mail" required="required" >
+                        <input type="mail" aria-invalid="true" aria-label="email" class="formulaire" id="mail2" required="required" >
                         <div class="invalid-feedback">
                           oops
                         </div>
@@ -249,7 +249,50 @@
                     </div>
                   </div>
                 </div>
-              <button class="w-100 btn btn-primary btn-lg" type="submit">Valider</button>
+                <div class="positioned">
+                  <a class="w-100 btn btn-primary btn-lg" type="submit" role="button" id="validateButton" href="totototo.html">Valider</a>
+                </div>
+
+              <script>
+                const inputField1 = document.getElementById('first-name');
+                const inputField2 = document.getElementById('last-name');
+                const inputField3 = document.getElementById('email');
+                const inputField4 = document.getElementById('email2');
+                const inputField5 = document.getElementById('adress');
+                const inputField6 = document.getElementById('country');
+                const inputField7 = document.getElementById('state');
+                const inputField8 = document.getElementById('conditionnalcheck');
+                const inputField9 = document.getElementById('zip');
+                const validateButton = document.getElementById('validateButton');
+            
+                function checkInputs() {
+                  const value1 = inputField1.value.trim();
+                  const value2 = inputField2.value.trim();
+                  const value3 = inputField3.value.trim();
+                  const value4 = inputField4.value.trim();
+                  const value5 = inputField5.value.trim();
+                  const value6 = inputField6.value.trim();
+                  const value7 = inputField7.value.trim();
+                  const value8 = inputField8.value.trim();
+                  const value9 = inputField9.value.trim();
+            
+                  if (value1 === 'toto1' && value2 === 'toto2' && value3 === 'toto3' && value4 === 'toto3' && value5 === 'toto3' && value6 === 'toto3' && value7 === 'toto3' && value8 === 'toto3' && value9 === 'toto3' ) {
+                    validateButton.removeAttribute('disabled');
+                  } else {
+                    validateButton.setAttribute('disabled', 'disabled');
+                  }
+                }
+            
+                inputField1.addEventListener('input', checkInputs);
+                inputField2.addEventListener('input', checkInputs);
+                inputField3.addEventListener('input', checkInputs);
+                inputField4.addEventListener('input', checkInputs);
+                inputField5.addEventListener('input', checkInputs);
+                inputField6.addEventListener('input', checkInputs);
+                inputField7.addEventListener('input', checkInputs);
+                inputField8.addEventListener('input', checkInputs);
+                inputField9.addEventListener('input', checkInputs);
+              </script>
             </form>
           </div>
         </div>
