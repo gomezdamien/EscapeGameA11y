@@ -18,7 +18,7 @@
 
 <body>    
     <main class="container-md content">        
-        <div class="container py-5">
+        <div class="container">
             <div class="">
               <div class="fw-bold text-uppercase">Mon panier <span class="badge text-bg-dark rounded-pill align-top">3 <span class="visually-hidden">articles dans le panier</span></span></h2>
                 <ul class="list-group my-5">
@@ -35,11 +35,27 @@
               <form class="card p-1 mb-5">
                 <div class="input-group">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="promo-code" required="required" placeholder="Code promo">
+                    <input type="text" class="form-control" id="promo-code" required="required" placeholder="Code promo" pattern="toto">
                     <label for="promo-code">Code promo</label>
+                    <div id="invalid-feedback" class="invalid-feedback">"mauvaise réponse"</div>
                   </div>
-                  <button class="btn btn-dark" type="submit">Appliquer <span class="visually-hidden">le code</span></button>
+                  <button id="submit-button" class="btn btn-dark" type="submit">Appliquer <span class="visually-hidden">le code</span></button>
                 </div>
+                <script>
+                  const answerInput = document.getElementById('promo-code');
+                  const errorMessage = document.getElementById('invalid-feedback');
+                  const submitButton = document.getElementById('submit-button');
+                
+                  answerInput.addEventListener('input', () => {
+                    if (answerInput.value === 'toto') {
+                      errorMessage.textContent = '';
+                      submitButton.removeAttribute('disabled');
+                    } else {
+                      errorMessage.textContent = "La réponse doit être 'toto'";
+                      submitButton.setAttribute('disabled', 'disabled');
+                    }
+                  });
+                </script>
                 </form>
             </div>
         </div>
