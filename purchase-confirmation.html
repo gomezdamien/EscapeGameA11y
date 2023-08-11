@@ -94,48 +94,7 @@
       <div id="extension-root" style="display: none;" class="active"><iframe></iframe></div>
       <iframe></iframe>
     </main>
-    <script>
-        function simulateDyslexia(text) {
-          const simulatedText = [];
-          for (const char of text) {
-            if (char.match(/[a-zA-Z]/)) {
-              // Rotation de lettres aléatoire
-              if (Math.random() < 0.2) {
-                simulatedText.push(rotateLetter(char));
-              } else {
-                simulatedText.push(char);
-              }
-            } else {
-              simulatedText.push(char);
-            }
-          }
-          return simulatedText.join('');
-        }
-    
-        function rotateLetter(letter) {
-          const rotationMap = {
-            b: 'd', d: 'b', p: 'q', q: 'p', 
-            n: 'u', u: 'n', M: 'W', W: 'M'
-            // Vous pouvez ajouter plus de correspondances ici
-          };
-          return rotationMap[letter] || letter;
-        }
-    
-        function simulateTextInElements(elements) {
-          elements.forEach(element => {
-            const originalText = element.textContent;
-            const simulatedText = simulateDyslexia(originalText);
-            element.textContent = simulatedText;
-          });
-        }
-    
-        function updateSimulatedText() {
-          const allTextElements = document.querySelectorAll('p, span, a, button, label, placeholder');
-          simulateTextInElements(allTextElements);
-        }
-    
-        setInterval(updateSimulatedText, 500); // Mettre à jour toutes les 0.5 secondes
-      </script>
+
 <style>
     body {
       font-size: 24px;
@@ -194,50 +153,8 @@
   <body>
     <div id="overlay">
       <div id="content">
-        <p>Attention, ceci est une simulation de trouble de l'attention.</p>
-        <img src="https://via.placeholder.com/300" alt="Image simulée">
+        <script src="assets/js/trouble.js"></script>
       </div>
     </div>
-  
-    <script>
-      const overlay = document.getElementById('overlay');
-      const content = document.getElementById('content');
-      
-      const messages = [
-        "Concentrez-vous...",
-        "Regardez attentivement...",
-        "Soyez attentif...",
-        "Ne vous laissez pas distraire...",
-      ];
-  
-      function getRandomMessage() {
-        const randomIndex = Math.floor(Math.random() * messages.length);
-        return messages[randomIndex];
-      }
-  
-      function getRandomImageURL() {
-        // Remplacez par vos URLs d'images réelles
-        const imageUrls = [
-          "https://via.placeholder.com/300",
-          "https://via.placeholder.com/400",
-          "https://via.placeholder.com/500"
-        ];
-        const randomIndex = Math.floor(Math.random() * imageUrls.length);
-        return imageUrls[randomIndex];
-      }
-  
-      function showOverlay() {
-        content.innerHTML = `<p>${getRandomMessage()}</p><img src="${getRandomImageURL()}" alt="Image simulée">`;
-        overlay.style.display = 'flex';
-        setTimeout(hideOverlay, 5000); // Masquer après 5 secondes
-      }
-  
-      function hideOverlay() {
-        overlay.style.display = 'none';
-        setTimeout(showOverlay, 2000); // Afficher à nouveau après 2 secondes
-      }
-  
-      showOverlay();
-    </script>
   </body>
 </html>
