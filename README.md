@@ -13,27 +13,27 @@ Objectif :
 - Inversion des alternatives sur les images ou laisser les alt auto-généré
 - Chatbot intempestif
 
-## Tunnel d’inscription
+## Registration
 Handicap ciblé : Handicap visuel
 Objectif :
 - Naviguer et remplir des champs de formulaire sur un écran totalement noir avec pour seul indice le nom accessible des éléments
 - Problèmes de label non lié programmatiquement aux champs de formulaire etc.
 
-## Page produit
+## Product
 Handicap ciblé : Handicap auditif
 Objectif :
 - L’utilisateur doit récupérer de l’information sur le produit, via une vidéo sans audio,
 - Nudge pour augmenter la difficulté 
 - Timer indiquant la fin de la possibilité de valider
 
-## Page récapitulative
+## Overview
 Handicap ciblé : Handicap cognitif
 Objectif :
 - Trouver des informations à entrer (code promo par exemple) dans la page récapitulative et dans un PDF
 - Jouer sur la police de caractère et les problèmes d’alignement
 - Pop-up intrusives pour gêner l’utilisateur.
 
-## Validation d’achat
+## Purchase-confirmation
 Handicap ciblé : Handicap visuel
 Objectif :
 - L’utilisateur devra suivre un processus de confirmation d’achat ne passant que par la couleur dans un site entièrement monochrome
@@ -48,7 +48,7 @@ Objectif :
 |   |---images
 |   |---js
 |---LandingPage.html (accueil)
-|---Tunnel-inscription.html (page d'inscription)
+|---Registration.html (page d'inscription)
 |---product.html (information sur le produit) 
 |---overview.html (page récapitulative)
 |---Purchase-confirmation.html (validation d'achat)
