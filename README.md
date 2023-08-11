@@ -13,7 +13,7 @@ Objectif :
 - Inversion des alternatives sur les images ou laisser les alt auto-généré
 - Chatbot intempestif
 
-## Tunnel d’inscription
+## Registration
 Handicap ciblé : Handicap visuel
 Objectif :
 - Naviguer et remplir des champs de formulaire sur un écran totalement noir avec pour seul indice le nom accessible des éléments
@@ -26,14 +26,14 @@ Objectif :
 - Nudge pour augmenter la difficulté 
 - Timer indiquant la fin de la possibilité de valider
 
-## Page récapitulative
+## Cart
 Handicap ciblé : Handicap cognitif
 Objectif :
 - Trouver des informations à entrer (code promo par exemple) dans la page récapitulative et dans un PDF
 - Jouer sur la police de caractère et les problèmes d’alignement
 - Pop-up intrusives pour gêner l’utilisateur.
 
-## Validation d’achat
+## Confirmation
 Handicap ciblé : Handicap visuel
 Objectif :
 - L’utilisateur devra suivre un processus de confirmation d’achat ne passant que par la couleur dans un site entièrement monochrome
