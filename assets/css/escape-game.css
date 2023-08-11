@@ -146,7 +146,7 @@ body {
 }
 
 body {
-    background-color: #000000;
+    background-color: white;
     font-family: sans-serif
 }
 
@@ -2860,4 +2860,31 @@ html:not(.touchevents) .start__button:not([disabled]):not(.is-disabled):hover {
 
 .view__row:last-child {
     margin-bottom: 0
+}
+
+.text-bloc {
+    border: 2px solid #000000;
+    padding: 20px;
+    background-color: #ffffff;
+    width: 400px;
+    height: 100px;
+    position: fixed;
+    top: 50px;
+    left: 10px;
+}
+  .container {
+    display: grid;
+    grid-template-columns: line;
+    gap: 10px;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+}
+
+  .text-field {
+    display: outside;
+    color: #fceb00;
+    background-color: none;
+    width: 400px;
+    height: 30px;
 }

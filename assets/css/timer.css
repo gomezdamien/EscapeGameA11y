@@ -6,6 +6,7 @@ body {
     display: flex;
     min-height: 100vh;
     background-color: white !important;
+    z-index: 99999;
 }
 
 .timer {
