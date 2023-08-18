@@ -18,7 +18,9 @@ function simulateDyslexia(text) {
 function rotateLetter(letter) {
   const rotationMap = {
     b: 'd', d: 'b', p: 'q', q: 'p', 
-    n: 'u', u: 'n', M: 'W', W: 'M'
+    n: 'u', u: 'n', M: 'W', W: 'M',
+    y: 'v', v: 'y', w: 'm', m:'w',
+    e: 'a', a: 'e',
     // Vous pouvez ajouter plus de correspondances ici
   };
   return rotationMap[letter] || letter;
@@ -33,8 +35,8 @@ function simulateTextInElements(elements) {
 }
 
 function updateSimulatedText() {
-  const allTextElements = document.querySelectorAll('p, span, a, button, label, placeholder');
+  const allTextElements = document.querySelectorAll('p, span, a, button, label, placeholder, option, select, title, h');
   simulateTextInElements(allTextElements);
 }
 
-setInterval(updateSimulatedText, 500); // Mettre à jour toutes les 0.5 secondes
+setInterval(updateSimulatedText, 2000); // Mettre à jour toutes les 2 secondes
