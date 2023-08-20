@@ -173,3 +173,12 @@ a {
     color: black !important;
 }
 
+.form-input {
+    background-color: #000000 !important;
+    color: #000000 !important;
+    margin-bottom: 10px !important;
+    border-width: 0px !important;
+}
+
+
+
