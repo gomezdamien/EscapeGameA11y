@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Accueil</title>
-    <!-- <link href="assets/css/black.css" rel="stylesheet"> -->
+    <title>Handicap visuel - Simulation</title>
+    <link href="assets/css/black.css" rel="stylesheet">
 <head>
     <title>Formulaire avec Vérification</title>
     <style>
@@ -71,7 +71,7 @@
 
       function updateTextBloc(event) {
         var target = event.target;
-        var accessibleName = target.getAttribute('aria-label', 'p', 'placeholder') || target.innerText || target.value || '';
+        var accessibleName = target.getAttribute('aria-label', 'placeholder') || target.innerText || target.value || '';
 
         textBloc.textContent = accessibleName;
       }
@@ -97,12 +97,12 @@
             <input class="form-input" type="text" id="mort" aria-label="date - format jj/mm/yyyy - champ obligatoire">
             <input class="form-input" type="text" id="ville" aria-label="lieu - champ obligatoire">
         </form>
-        <button class="next-button invalid" id="suivant" aria-label="suivant" disabled>Suivant</button>
+        <a class="next-link invalid" id="valider" aria-label="valider" disabled>valider</a>
     </div>
 
     <script>
         const formInputs = document.querySelectorAll('.form-input');
-        const nextButton = document.getElementById('suivant');
+        const nextLink = document.getElementById('valider');
 
         formInputs.forEach(input => {
             input.addEventListener('input', () => {
@@ -120,15 +120,16 @@
             const ville = document.getElementById('ville').value;
 
             if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && adresse === 'institution royale des jeunes aveugles' && adresse2 === '' && mort === '06/01/1852' && ville === 'panthéon') {
-                nextButton.classList.remove('invalid');
-                nextButton.classList.add('valid');
-                nextButton.removeAttribute('disabled');
+                nextLink.classList.remove('invalid');
+                nextLink.classList.add('valid');
+                nextLink.removeAttribute('disabled');
             } else {
-                nextButton.classList.remove('valid');
-                nextButton.classList.add('invalid');
-                nextButton.setAttribute('disabled', 'true');
+                nextLink.classList.remove('valid');
+                nextLink.classList.add('invalid');
+                nextLink.setAttribute('disabled', 'true');
             }
         }
     </script>
+    <script src="./assets/js/timer.js"></script>
 </body>
 </html>
