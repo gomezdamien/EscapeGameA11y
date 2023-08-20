@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900" rel="stylesheet">
+    <link href="assets/css/black.css" rel="stylesheet">
+<head>
+    <title>Formulaire avec Vérification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .next-button {
+            padding: 10px 20px;
+            background-color: black;
+            color: black;
+            border: none;
+            cursor: not-allowed;
+        }
+
+        .valid {
+            cursor: pointer;
+            background-color: #4caf50;
+        }
+
+        .invalid {
+            opacity: 0.5;
+        }
+        #question-button {
+        width: 30px;
+        height: 30px;
+        background-color: rgb(255, 208, 1);
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      }
+      #text-bloc {
+            border: 2px solid #000000;
+            padding: 20px;
+            background-color: #ffffff;
+            width: 400px;
+            height: 100px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+          }
+      #container {
+        display: grid;
+        grid-template-columns: line;
+        gap: 10px;
+        position: fixed;
+        top: 5%;
+        right: 10px;
+      }
+    
+      .text-field {
+        display: outside;
+        color: #fceb00;
+        background-color: none;
+      }
+    </style>
+</head>
+<div id="container">
+    <button id="question-button" i class="bi bi-question-circle-fill" role="img" aria-label="aide" ></button>
+  </div> 
+  <script>
+    var clickCount = 0;
+    var container = document.getElementById('container');
+    var questionButton = document.getElementById('question-button');
+    var texts = ['texte numéro 1', 'texte numéro 2', 'texte numéro 3'];
+
+    questionButton.addEventListener('click', function() {
+      clickCount++;
+
+      if (clickCount <= texts.length) {
+        var textField = document.createElement('input');
+        textField.setAttribute('type', 'text');
+        textField.className = 'text-field';
+        textField.placeholder = texts[clickCount - 1];
+
+        container.appendChild(textField);
+      }
+    });
+  </script>
+  <div id="text-bloc"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var textBloc = document.getElementById('text-bloc');
+
+      function updateTextBloc(event) {
+        var target = event.target;
+        var accessibleName = target.getAttribute('aria-label') || target.innerText || target.value || '';
+
+        textBloc.textContent = accessibleName;
+      }
+
+      document.addEventListener('focusin', updateTextBloc);
+      document.addEventListener('focusout', function() {
+        textBloc.textContent = '';
+      });
+    });
+  </script>  
+<body>
+    <div class="form-container">
+        <h1>Formulaire</h1>
+        <form id="myForm">
+            <input class="form-input" type="text" id="nom" aria-label="nom">
+            <input class="form-input" type="text" id="prenom" aria-label="prénom">
+            <input class="form-input" type="text" id="age" aria-label="age">
+            <input class="form-input" type="text" id="adresse" aria-label="adresse">
+            <input class="form-input" type="text" id="adresse2" aria-label="adresse">
+            <input class="form-input" type="text" id="codePostal" aria-label="code postal">
+            <input class="form-input" type="text" id="ville" aria-label="ville">
+        </form>
+        <button class="next-button invalid" id="suivant" aria-label="suivant" disabled>Suivant</button>
+    </div>
+
+    <script>
+        const formInputs = document.querySelectorAll('.form-input');
+        const nextButton = document.getElementById('suivant');
+
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                validateForm();
+            });
+        });
+
+        function validateForm() {
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const age = document.getElementById('age').value;
+            const adresse = document.getElementById('adresse').value;
+            const adresse2 = document.getElementById('adresse2').value;
+            const codePostal = document.getElementById('codePostal').value;
+            const ville = document.getElementById('ville').value;
+
+            if (nom === 'test' && prenom === 'toto' && age === '58' && adresse === '8 rue du test' && adresse2 === 'uiui' && codePostal === '35410' && ville === 'moncul') {
+                nextButton.classList.remove('invalid');
+                nextButton.classList.add('valid');
+                nextButton.removeAttribute('disabled');
+            } else {
+                nextButton.classList.remove('valid');
+                nextButton.classList.add('invalid');
+                nextButton.setAttribute('disabled', 'true');
+            }
+        }
+    </script>
+</body>
+</html>
