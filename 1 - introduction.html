@@ -24,7 +24,7 @@
             background-color: #fff;
             padding: 20px;
             border: 1px solid #ccc;
-            text-align: center;
+            text-align: justify;
         }
 
         .description {
@@ -36,10 +36,11 @@
         .link {
             color: rgb(0, 0, 0);
             text-decoration: none;
+
         }
 
         .link:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .button {
@@ -60,12 +61,23 @@
 <body>
     <div class="header">
         <h1>Escape Game <br/> A11y</h1>
+        <div class="timer" id="timer">00:00:00</div>
     </div>
     
     <div class="container">
-        <h2 class="description">Description</h2>
-        <p>Cet escape game a pour objectif de vous offrir une expérience immersive, vous sensibilisants aux défis auxquels sont confrontées les personnes en situation de handicap numérique.<br/> Vous serez plongés dans un scénario où vous incarnerez un personnage ayant des limitations technologiques et devant résoudre des énigmes spécialement conçues pour simuler les difficultés rencontrées dans le monde numérique.<br/> <a href="http://tototototo.fr" class="link">Ici</a>, les joueurs devront naviguer à travers des interfaces numériques, surmonter des obstacles liés à l'accessibilité et résoudre des casse-tête pour avancer dans le jeu.</p>
+        <h2>Description</h2>
+        <p>Cet escape game a pour objectif de vous offrir une expérience immersive, vous sensibilisants plus particulièrement aux défis auxquels sont confrontées les personnes en situation de handicap numérique.<br/> Vous serez plongés dans un scénario dans lequel vous incarnerez un personnage ayant des déficiences différentes à chaque nouvelle étapes franchies.<br/> Vous devrez donc <a href="2 - handicap-visuel.html" class="link">ici</a> résoudre les énigmes et les défis un à un, surmonter des obstacles liés à l'accessibilité et à l'ergonomie pour avancer dans le jeu.</br/> À vous de vous en sortir seul ou en groupe contre ces difficultés et des développeurs pas super super bienveillant. <br/></p>
+        <h2>Les règles :</h2>
+            <ul>
+                <li>Vous avez 60 minutes pour aller le plus loin possible (et finir je l'espère).</li>
+                <li>Pour chaque nouvelle étape, une énigme basé sur une ou plusieurs déficience(s) vous sera énnoncée.</li>
+                <li>Chaque énigme a ses propres règles.</li>
+                <li>Toutes les pages contiennent au moins une petite perfidie de ma part (hihihi).</li>
+                <li>Les premiers auront un petit cadeau (les autres aussi mais il ne faut pas le dire).</li>
+                <li>Le jeu a déjà commencé ...</li>
+            </ul>
         <button class="button">Pour commencer, cliquez sur le lien Ici.</button>
+        <script src="./assets/js/timer.js"></script>
     </div>
 </body>
 </html>

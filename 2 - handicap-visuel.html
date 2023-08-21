@@ -12,6 +12,8 @@
             color: #000;
             text-align: center;
             font-size: 24px;
+            position: relative;
+            margin: 10px;
         }
 
         .header {
@@ -19,7 +21,6 @@
             background-color: #000;
             color: #fff;
             text-align: center;
-            position: static;
             top: 0;
             padding: 100px;
         }
@@ -28,14 +29,14 @@
             background-color: #fff;
             padding: 20px;
             border: none;
-            text-align: center;
-            margin-bottom: 50px;
+            text-align: justify;
+            margin-bottom: 30px;
         }
 
         .description {
             font-size: 30px;
             font-weight: bold;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             margin-top: 50px;
             text-align: center;
         }
@@ -48,18 +49,60 @@
             padding: 10px 20px;
             text-align: center;
         }
+                
+        .button-container {
+            justify-content: center;
+            margin-top: 10px;
+            position: static;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        button.active {
+            background-color: #4b4b4b;
+            color: white;
+            cursor: pointer;
+        }
+
+        #message {
+            color: red;
+            z-index: 1;
+            text-align: center;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 30px;
+            margin: 20px;
+        }
 
 </style>
 <body>
     <div class="header">
         <h1>Handicap visuel</h1>
+        <div class="timer" id="timer">00:00:00</div>
     </div>
     <div class="container">
-        <h2 class="description">Description</h2>
-            <p>La navigation sur internet peut être un défi pour les personnes aveugles.<br/>Pour elles, l'expérience en ligne est dépendante des aides techniques et de la technologie comme les lecteurs d'écran. <br/>Mais pour que ces aides techniques soit utiles, encore faut-il qu'elles puissent s'appuyer sur un code suffisamment empathique ... </p>
+        <h2>Description</h2>
+            <p>La navigation sur internet est un défi pour une personne atteint de déficience visuel.<br/>L'expérience en ligne est très dépendante des aides techniques (comme les lecteurs d'écran), et d'un code html adapté s'interfacer correctement aux outils.</p>
+        <h2>Règles</h2>
+            <ul>
+                <li>Résoudre la prochaine énigme en indiquant les valeurs attendus dans les bons champs de formulaire</li>
+                <li>Cliquez sur les boutons dans un ordre précis : vert, bleu, rouge et ensuite violet pour commencer</li>
+                <li>Attention, en cas d'erreur il faudra tout recommencer !</li>
+                <li>Qui a éteint la lumière ?...</li>
+            </ul>
     </div>
-    <div>
-            <a class="link" href="2 - exo.html"  aria-label="Commencer l'expérience">Commencer l'expérience</a>
+    <div class="button-container">
+        <button id="blue-button" aria-label="bouton bleu" class="active">Commencer l'expérience</button>
+        <button id="green-button" aria-label="bouton vert" class="active">Commencer l'expérience</button>
+        <button id="purple-button" aria-label="bouton violet" class="active">Commencer l'expérience</button>
+        <button id="red-button" aria-label="bouton rouge" class="active">Commencer l'expérience</button>
     </div>
+    <div id="message"></div>
+    <script src="assets/js/greyEnigma.js"></script>
+    <script src="./assets/js/timer.js"></script>
 </body>
 </html>

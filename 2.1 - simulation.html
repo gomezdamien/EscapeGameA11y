@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Handicap visuel - Simulation</title>
+    <link href="assets/css/black.css" rel="stylesheet">
+<head>
+    <title>Formulaire avec Vérification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .next-button {
+            padding: 10px 20px;
+            background-color: black;
+            color: black;
+            border: none;
+            cursor: not-allowed;
+        }
+
+        .valid {
+            cursor: pointer;
+            background-color: #4caf50;
+        }
+
+        .invalid {
+            opacity: 0.5;
+        }
+
+      #text-bloc {
+            border: 2px solid #000000;
+            padding: 20px;
+            background-color: #ffffff;
+            text-align: center;
+            width: 500px;
+            height: 500px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+          }
+      #container {
+        display: grid;
+        grid-template-columns: line;
+        gap: 10px;
+        position: fixed;
+        top: 5%;
+        right: 10px;
+      }
+        </style>
+</head>
+  <div id="text-bloc"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var textBloc = document.getElementById('text-bloc');
+
+      function updateTextBloc(event) {
+        var target = event.target;
+        var accessibleName = target.getAttribute('aria-label', 'placeholder') || target.innerText || target.value || '';
+
+        textBloc.textContent = accessibleName;
+      }
+
+      document.addEventListener('focusin', updateTextBloc);
+      document.addEventListener('focusout', function() {
+        textBloc.textContent = '';
+      });
+    });
+  </script>  
+<body>
+    <div class="form-container">
+        <h1>2.1 - Expérience Visuel</h1>
+        <div class="timer" id="timer">00:00:00</div>
+        <div class="container"></div>
+          <h2>Énigme</h2>
+          <a href="">Facile de rentrer ses coordonées dans un formulaire, mais moi Louis, j'ai dû m'échiner de toutes mes forces pour que mon handicap ne m'entrave pas (faut dire que j'avais le cuir épais).<br/> Même si je dois y retourner tous les jours pour y suivre un enseignement non adapté, je met un POINT d'honneur à inventer et perfectionner mon système. <br/>En tout cas le résulat est là, mon invention m'a survécu et continue d'aider tout ceux qui en ont besoin, j'ai même été déplacé en tant que personnalité, pour la postérité.</a>
+        <form id="myForm">
+            <input class="form-input" type="text" id="nom" aria-label="Nom - champ obligatoire">
+            <input class="form-input" type="text" id="prenom" aria-label="Prénom - champ obligatoire">
+            <input class="form-input" type="text" id="naissance" aria-label="date - format jj/mm/yyyy - champ obligatoire">
+            <input class="form-input" type="text" id="adresse" aria-label="lieu - champ obligatoire">
+            <input class="form-input" type="text" id="adresse2" aria-label="adresse">
+            <input class="form-input" type="text" id="mort" aria-label="date - format jj/mm/yyyy - champ obligatoire">
+            <input class="form-input" type="text" id="ville" aria-label="lieu - champ obligatoire">
+        </form>
+        <a class="next-link invalid" id="valider" aria-label="valider" disabled>valider</a>
+    </div>
+
+    <script>
+        const formInputs = document.querySelectorAll('.form-input');
+        const nextLink = document.getElementById('valider');
+
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                validateForm();
+            });
+        });
+
+        function validateForm() {
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const naissance = document.getElementById('naissance').value;
+            const adresse = document.getElementById('adresse').value;
+            const adresse2 = document.getElementById('adresse2').value;
+            const mort = document.getElementById('mort').value;
+            const ville = document.getElementById('ville').value;
+
+            if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && adresse === 'institution royale des jeunes aveugles' && adresse2 === '' && mort === '06/01/1852' && ville === 'panthéon') {
+                nextLink.classList.remove('invalid');
+                nextLink.classList.add('valid');
+                nextLink.removeAttribute('disabled');
+            } else {
+                nextLink.classList.remove('valid');
+                nextLink.classList.add('invalid');
+                nextLink.setAttribute('disabled', 'true');
+            }
+        }
+    </script>
+    <script src="./assets/js/timer.js"></script>
+</body>
+</html>
