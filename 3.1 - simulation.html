@@ -3,17 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Handicap auditif</title>
-</head>
-<style>
+    <title>Handicap visuel - Simulation</title>
+<head>
+    <title>Formulaire avec Vérification</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #fff;
             color: #000;
-            text-align: center;
             font-size: 24px;
-            position: relative;
-            margin: 10px;
+            text-align: center;
         }
 
         .header {
@@ -21,6 +20,7 @@
             background-color: #000;
             color: #fff;
             text-align: center;
+            position: static;
             top: 0;
             padding: 100px;
         }
@@ -28,17 +28,14 @@
         .container {
             background-color: #fff;
             padding: 20px;
-            border: none;
-            text-align: justify;
-            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
         }
 
         .description {
             font-size: 30px;
             font-weight: bold;
-            margin-bottom: 30px;
-            margin-top: 50px;
-            text-align: center;
+            margin-bottom: 5px;
         }
 
         .link {
@@ -47,26 +44,28 @@
             color: #fff;
             border-radius: 20px;
             padding: 10px 20px;
-            text-align: center;
+            font-size: 24px;
         }
 
-</style>
+        </style>
+</head>
 <body>
-    <div class="header">
-        <h1>Handicap auditif</h1>
-    </div>
+  <div class="header">
+    <h1>3.1 - Expérience Auditif</h1>
+    <div class="timer" id="timer">00:00:00</div>
+  </div>
     <div class="container">
-        <h2>Description</h2>
-            <p>Texte de description</p>
-        <h2>Règles</h2>
-            <ul>
-                <li>point 1</li>
-                <li>point 2</li>
-            </ul>
+      <div>
+          <h2>Énigme</h2>
+          <p>Il suffit de bien écouter non ?</p>
+      </div>
+      <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=o3uRiXm3Jm0" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
-    <div>
-        <a href="3.1 - simulation.html" class="link">Valider</a>
-    </div>
-    <script src="./assets/js/timer2.js"></script>
+      <div>
+        <a href="#" class="link">Valider</a>
+      </div>
+    <script src="./assets/js/timer.js"></script>
 </body>
 </html>
