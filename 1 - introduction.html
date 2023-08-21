@@ -36,10 +36,11 @@
         .link {
             color: rgb(0, 0, 0);
             text-decoration: none;
+
         }
 
         .link:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .button {
@@ -60,6 +61,7 @@
 <body>
     <div class="header">
         <h1>Escape Game <br/> A11y</h1>
+        <div class="timer" id="timer">00:00:00</div>
     </div>
     
     <div class="container">
@@ -75,6 +77,7 @@
                 <li>Le jeu a déjà commencé ...</li>
             </ul>
         <button class="button">Pour commencer, cliquez sur le lien Ici.</button>
+        <script src="./assets/js/timer.js"></script>
     </div>
 </body>
 </html>
