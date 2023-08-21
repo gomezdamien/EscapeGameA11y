@@ -8,31 +8,35 @@ const messages = [
   "Tiens, il pleut aujourd'hui",
 ];
 
-function getRandomMessage() {
-  const randomIndex = Math.floor(Math.random() * messages.length);
-  return messages[randomIndex];
-}
-
 function getRandomImageURL() {
   // Remplacez par vos URLs d'images réelles
   const imageUrls = [
-    "https://via.placeholder.com/300",
-    "https://via.placeholder.com/400",
-    "https://via.placeholder.com/500"
+    "./assets/img/Porte_ferme.png",
+    "./assets/img/hungry.png",
+    "./assets/img/voisin.png",
+    "./assets/img/monkey.png"
   ];
   const randomIndex = Math.floor(Math.random() * imageUrls.length);
   return imageUrls[randomIndex];
 }
 
 function showOverlay() {
-  content.innerHTML = `<p>${getRandomMessage()}</p><img src="${getRandomImageURL()}" alt="Image simulée">`;
+  content.innerHTML = `<img src="${getRandomImageURL()}" alt="Image simulée">`;
   overlay.style.display = 'flex';
-  setTimeout(hideOverlay, 5000); // Masquer après 5 secondes
+
+  // Générer un délai aléatoire entre 2 et 10 secondes
+  const randomDelay = Math.random() * (10000 - 3000) + 2000;
+
+  setTimeout(hideOverlay, randomDelay); // Masquer après le délai aléatoire
 }
 
 function hideOverlay() {
   overlay.style.display = 'none';
-  setTimeout(showOverlay, 2000); // Afficher à nouveau après 2 secondes
+
+  // Générer un délai aléatoire entre 2 et 10 secondes pour réafficher
+  const randomDelay = Math.random() * (10000 - 3000) + 2000;
+
+  setTimeout(showOverlay, randomDelay); // Afficher à nouveau après le délai aléatoire
 }
 
 showOverlay();
