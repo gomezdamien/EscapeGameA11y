@@ -12,17 +12,12 @@ Ici, les joueurs devront naviguer à travers des interfaces numériques, surmont
 
 Pour accéder à l'étape suivante, cliquez sur le lien ici.
 
-### 1 - exo
-Le compte à rebour commence dès à présent.
-On commence doucement avec un simple problème d'ergo, je planque le lien "ici" dans le texte d'introduction et non pas dans la phrase "cliquez sur le lien ici"
-
-
 ## Visuel
 ### 2 - description
 Handicap ciblé : Handicap visuel
 
 
-### 2 - exo
+### 2.1 - simulation
 Objectif :
 - Naviguer et remplir des champs de formulaire sur un écran totalement noir avec pour seul indice le nom accessible des éléments
 - Problèmes de label non lié programmatiquement aux champs de formulaire etc.
@@ -33,7 +28,7 @@ Objectif :
 Handicap ciblé : Handicap auditif
 
 
-### 3 - exo
+### 3.1 - simulation
 Objectif :
 - L’utilisateur doit récupérer de l’information , via une vidéo sans audio,
 - Nudge pour augmenter la difficulté 
@@ -42,21 +37,20 @@ Objectif :
 ### 4 - description
 Handicap ciblé : Handicap cognitif
 
-### 4 - exo
+### 4.1 - simulation
 Objectif :
 - Trouver des valeurs à entrer dans des inputs dans une page de texte
 - Jouer sur la police de caractère et les problèmes d’alignement
 - Pop-up intrusives pour gêner l’utilisateur.
 
 
-## Daltonisme
+## Moteur
 ### 5 - description
-Handicap ciblé : Handicap visuel
+Handicap ciblé : Handicap moteur
 
-### 5 - exo
+### 5.1 - simulation
 Objectif :
-- L’utilisateur devra parcourir une énigme ne se basant que par la couleur dans un site entièrement monochrome
-- Ajouter dark pattern (lien non sous-ligné par exemple).
+- L’utilisateur devra faire un parcour avec une souris qui tremble et qui saccade
 
 
 ## File structure
@@ -68,13 +62,13 @@ Objectif :
 |   |---js
 |---Start.html (accueil)
 |---1 - introduction.html
-|---1 - exo.html
-|---2 - visuel.html
-|---2 - exo.html
-|---3 - auditif.html
-|---3 - exo.html
-|---4 - cognitif.html
-|---4 - exo.html
-|---5 - daltonisme.html
-|---5 - exo.html
+|---1.1 - simulation.html
+|---2 - handicap-visuel.html
+|---2.1 - simulation.html
+|---3 - handicap-auditif.html
+|---3.1 - simulation.html
+|---4 - handicap-cognitif.html
+|---4.1 - simulation.html
+|---5 - handicap-moteur.html
+|---5.1 - simulation.html
 ```
