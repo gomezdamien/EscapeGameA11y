@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Handicap visuel - Simulation</title>
+    <title>Handicap cognitif - Simulation</title>
 <head>
     <title>Formulaire avec Vérification</title>
     <style>
@@ -11,8 +11,10 @@
             font-family: Arial, sans-serif;
             background-color: #fff;
             color: #000;
-            font-size: 24px;
             text-align: center;
+            font-size: 24px;
+            position: relative;
+            margin: 10px;
         }
 
         .header {
@@ -20,52 +22,167 @@
             background-color: #000;
             color: #fff;
             text-align: center;
-            position: static;
             top: 0;
             padding: 100px;
         }
 
         .container {
-            background-color: #fff;
+        text-align: justify;
+        display: grid;
+        grid-template-columns: line;
+        gap: 10px;
+        position: relative;
+        top: 5%;
+        right: 10px;
+      }
+
+        .form-container {
+          text-align: justify;
+            max-width: 400px;
+            margin: 0 auto;
             padding: 20px;
-            border: 1px solid #ccc;
-            text-align: center;
         }
 
-        .description {
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .form-input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
         }
 
-        .link {
-            border: none;
+        .valid {
+          border: none;
             background-color: rgb(197, 90, 197);
             color: #fff;
             border-radius: 20px;
             padding: 10px 20px;
             font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .invalid {
+            opacity: 0;
+        }
+
+        .enigme {
+          text-align: center;
         }
 
         </style>
 </head>
 <body>
   <div class="header">
-    <h1>3.1 - Expérience Auditif</h1>
+    <h1>3.1 - simulation cognitif</h1>
     <div class="timer" id="timer">00:00:00</div>
   </div>
     <div class="container">
       <div>
-          <h2>Énigme</h2>
-          <p>Il suffit de bien écouter non ?</p>
-      </div>
-      <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=o3uRiXm3Jm0" frameborder="0" allowfullscreen></iframe>
+          <h2 class="enigme">Énigme</h2>
+          <ul>
+            <li>Mon premier n'avait pas la langue dans sa poche et portait la moustache, même si il faut relativiser, c'était plus fréquent à l'époque... <br/>en tout cas, on peut dire qu'il mit une nouvelle définition au poid du monde et ses découvertes ont été une révolution.</li>
+            <li>Ma deuxième est la reine du crime, que ce soit avec un poirot ou sa plume, son flegme a marqué (on pourrait même dire imprimé) de son enpreinte le genre policier.</li>
+            <li>Mon troisième a évolué depuis sa naissance en 1809 jusqu'à sa mort en 1882, même si il est à l'origine des espèces, la sélection naturelle est la même pour tout le monde après tout.</li>
+          </ul>
       </div>
     </div>
-      <div>
-        <a href="#" class="link">Valider</a>
-      </div>
+    <div class="form-container">
+      <form id="myForm">
+        <label >premier <input class="form-input" type="text" id="premier" aria-label="premier"></label>
+        <label >deuxième <input class="form-input" type="text" id="deuxième" aria-label="deuxième"></label>
+        <label >troisième <input class="form-input" type="text" id="troisième" aria-label="troisème"></label>
+      </form>
+    </div>
+    <div>
+      <a class="next-link invalid" href="4 - moteur.html" id="valider" aria-label="valider" disabled>valider</a>
+    </div>
+    <script>
+      const formInputs = document.querySelectorAll('.form-input');
+      const nextLink = document.getElementById('valider');
+
+      formInputs.forEach(input => {
+          input.addEventListener('input', () => {
+              validateForm();
+          });
+      });
+
+      function validateForm() {
+          const premier = document.getElementById('premier').value;
+          const deuxième = document.getElementById('deuxième').value;
+          const troisième = document.getElementById('troisième').value;
+
+          if (premier === 'Einstein' && deuxième === 'Christie' && troisième === 'Darwin') {
+              nextLink.classList.remove('invalid');
+              nextLink.classList.add('valid');
+              nextLink.removeAttribute('disabled');
+          } else {
+              nextLink.classList.remove('valid');
+              nextLink.classList.add('invalid');
+              nextLink.setAttribute('disabled', 'true');
+          }
+      }
+    </script>
     <script src="./assets/js/timer.js"></script>
+</body>
+  <style>
+    body {
+      font-size: 24px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    #content {
+      text-align: center;
+      color: black;
+      animation: moveContent 5s infinite, fadeInOut 5s infinite;
+    }
+  
+    @keyframes moveContent {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(200px, 200px);
+    }
+    50% {
+        transform: translate(400px, 0);
+    }
+    75% {
+        transform: translate(200px, -200px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+    }
+  
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+<body>
+      <div id="overlay">
+        <div id="content">
+          <script src="./assets/js/attention-disorder.js"></script>
+          <script src="./assets/js/simulateDyslexiaEasy.js"></script>
+        </div>
+      </div>
 </body>
 </html>

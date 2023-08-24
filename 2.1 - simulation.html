@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Handicap visuel - Simulation</title>
     <link href="assets/css/black.css" rel="stylesheet">
+    <link href="./assets/css/braille-small.css" rel="stylesheet" type="text/css">
 <head>
     <title>Formulaire avec Vérification</title>
     <style>
@@ -48,8 +49,8 @@
             padding: 20px;
             background-color: #ffffff;
             text-align: center;
-            width: 500px;
-            height: 500px;
+            width: 550px;
+            height: 50px;
             position: fixed;
             top: 10px;
             left: 10px;
@@ -62,6 +63,23 @@
         top: 5%;
         right: 10px;
       }
+
+      .black-radio {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #000;
+          border-radius: 50%;
+          background-color: #000;
+      }
+
+      .black-radio:checked {
+          background-color: #000;
+      }
+
+
         </style>
 </head>
   <div id="text-bloc"></div>
@@ -85,10 +103,24 @@
 <body>
     <div class="form-container">
         <h1>2.1 - Expérience Visuel</h1>
-        <div class="timer" id="timer">00:00:00</div>
+                <div class="timer" id="timer">00:00:00</div>
         <div class="container"></div>
-          <h2>Énigme</h2>
-          <a href="">Facile de rentrer ses coordonées dans un formulaire, mais moi Louis, j'ai dû m'échiner de toutes mes forces pour que mon handicap ne m'entrave pas (faut dire que j'avais le cuir épais).<br/> Même si je dois y retourner tous les jours pour y suivre un enseignement non adapté, je met un POINT d'honneur à inventer et perfectionner mon système. <br/>En tout cas le résulat est là, mon invention m'a survécu et continue d'aider tout ceux qui en ont besoin, j'ai même été déplacé en tant que personnalité, pour la postérité.</a>
+          <h2 href="">Énigme</h2>
+          <a href="">Difficile de savoir ou l'on va dans le noir hein ?</a>
+          <a href="">Heureusement... il y a le clavier...</a>
+          <a href="">Et puis c'est très facile de rentrer des valeurs dans un formulaire</a>
+          <a href="">...enfin...</a>
+          <a href="">Il ne reste qu'à savoir QUOI rentrer ...</a>
+          <a href=""> et ou ...?</a>
+          <a href="">Énigme :</a>
+          <a href="">Moi, Louis, j'ai dû travailler de toutes mes forces pour que mon handicap ne m'entrave pas.</a>
+          <a href="">(mon père me disait que j'avais le cuir épais)</a>
+          <a href="">Même si je dois y retourner tous les jours pour y suivre un enseignement non adapté,</a>
+          <a href="">je mets un POINT d'honneur à y travailler, inventer et perfectionner mon système.</a>
+          <a href="">En tout cas le résultat est là, mon invention m'a survécu et est devenu la norme !</a>
+          <a href=""> j'ai même été déplacé pendant mon repos en tant que personnalité...</a>
+          <a href="">pour la postérité.</a>
+          <a href="">Formulaire :</a>
         <form id="myForm">
             <input class="form-input" type="text" id="nom" aria-label="Nom - champ obligatoire">
             <input class="form-input" type="text" id="prenom" aria-label="Prénom - champ obligatoire">
@@ -98,9 +130,13 @@
             <input class="form-input" type="text" id="mort" aria-label="date - format jj/mm/yyyy - champ obligatoire">
             <input class="form-input" type="text" id="ville" aria-label="lieu - champ obligatoire">
         </form>
-        <a class="next-link invalid" id="valider" aria-label="valider" disabled>valider</a>
+        <div class="radio-container">
+          <input type="radio" id="radio-black" name="color" aria-label="bouton radio" aria-checked="false" class="black-radio">
+          <label for="radio-black"></label>
+        </div>
+        <a class="next-link invalid" href="3 - cognitif.html" id="valider" aria-label="valider" disabled>valider</a>
     </div>
-
+    <script src="./assets/js/braille-tools.js" type="text/javascript" charset="utf-8"></script>
     <script>
         const formInputs = document.querySelectorAll('.form-input');
         const nextLink = document.getElementById('valider');
@@ -131,6 +167,6 @@
             }
         }
     </script>
-    <script src="./assets/js/timer.js"></script>
+    <script src="./assets/js/timer2.js"></script>
 </body>
 </html>
