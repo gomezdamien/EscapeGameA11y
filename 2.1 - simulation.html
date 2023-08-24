@@ -6,9 +6,11 @@
     <title>Handicap visuel - Simulation</title>
     <link href="assets/css/black.css" rel="stylesheet">
     <link href="./assets/css/braille-small.css" rel="stylesheet" type="text/css">
+    <script src="./assets/js/braille-tools.js" type="text/javascript" charset="utf-8"></script>
 <head>
     <title>Formulaire avec Vérification</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -90,13 +92,17 @@
       function updateTextBloc(event) {
         var target = event.target;
         var accessibleName = target.getAttribute('aria-label', 'placeholder') || target.innerText || target.value || '';
-
-        textBloc.textContent = accessibleName;
+        
+        if(target.getAttribute("class") == "form-input"){
+          textBloc.innerHTML = br.braille(accessibleName);
+        }
+        else textBloc.innerHTML = accessibleName;
+        
       }
 
       document.addEventListener('focusin', updateTextBloc);
       document.addEventListener('focusout', function() {
-        textBloc.textContent = '';
+        textBloc.innerHTML = '';
       });
     });
   </script>  
@@ -136,7 +142,7 @@
         </div>
         <a class="next-link invalid" href="3 - cognitif.html" id="valider" aria-label="valider" disabled>valider</a>
     </div>
-    <script src="./assets/js/braille-tools.js" type="text/javascript" charset="utf-8"></script>
+    
     <script>
         const formInputs = document.querySelectorAll('.form-input');
         const nextLink = document.getElementById('valider');
