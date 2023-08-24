@@ -37,7 +37,7 @@ function simulateTextInElements(elements) {
 }
 
 function updateSimulatedText() {
-  const allTextElements = document.querySelectorAll('p, span, a, button, label, placeholder, option, select, title, h');
+  const allTextElements = document.querySelectorAll('a, button');
   simulateTextInElements(allTextElements);
 }
 

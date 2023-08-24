@@ -38,10 +38,11 @@
         .valid {
             cursor: pointer;
             background-color: #4caf50;
+            opacity: 0;
         }
 
         .invalid {
-            opacity: 0.5;
+            opacity: 0;
         }
 
       #text-bloc {
@@ -63,22 +64,6 @@
         top: 5%;
         right: 10px;
       }
-
-      .black-radio {
-          appearance: none;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          width: 20px;
-          height: 20px;
-          border: 2px solid #000;
-          border-radius: 50%;
-          background-color: #000;
-      }
-
-      .black-radio:checked {
-          background-color: #000;
-      }
-
 
         </style>
 </head>
@@ -117,7 +102,7 @@
           <a href="">(mon père me disait que j'avais le cuir épais)</a>
           <a href="">Même si je dois y retourner tous les jours pour y suivre un enseignement non adapté,</a>
           <a href="">je mets un POINT d'honneur à y travailler, inventer et perfectionner mon système.</a>
-          <a href="">En tout cas le résultat est là, mon invention m'a survécu et est devenu la norme !</a>
+          <a href="">En tout cas le résultat est là, mon invention m'a survécu et est devenu la norme,</a>
           <a href=""> j'ai même été déplacé pendant mon repos en tant que personnalité...</a>
           <a href="">pour la postérité.</a>
           <a href="">Formulaire :</a>
@@ -130,16 +115,12 @@
             <input class="form-input" type="text" id="mort" aria-label="date - format jj/mm/yyyy - champ obligatoire">
             <input class="form-input" type="text" id="ville" aria-label="lieu - champ obligatoire">
         </form>
-        <div class="radio-container">
-          <input type="radio" id="radio-black" name="color" aria-label="bouton radio" aria-checked="false" class="black-radio">
-          <label for="radio-black"></label>
-        </div>
-        <a class="next-link invalid" href="3 - cognitif.html" id="valider" aria-label="valider" disabled>valider</a>
+        <button type="button" onclick="window.location='./3 - cognitif.html'" class="next-button invalid" id="valider" aria-label="valider" disabled>valider</button>
     </div>
     <script src="./assets/js/braille-tools.js" type="text/javascript" charset="utf-8"></script>
     <script>
         const formInputs = document.querySelectorAll('.form-input');
-        const nextLink = document.getElementById('valider');
+        const nextButton = document.getElementById('valider');
 
         formInputs.forEach(input => {
             input.addEventListener('input', () => {
@@ -157,13 +138,13 @@
             const ville = document.getElementById('ville').value;
 
             if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && adresse === 'institution royale des jeunes aveugles' && adresse2 === '' && mort === '06/01/1852' && ville === 'panthéon') {
-                nextLink.classList.remove('invalid');
-                nextLink.classList.add('valid');
-                nextLink.removeAttribute('disabled');
+                nextButton.classList.remove('invalid');
+                nextButton.classList.add('valid');
+                nextButton.removeAttribute('disabled');
             } else {
-                nextLink.classList.remove('valid');
-                nextLink.classList.add('invalid');
-                nextLink.setAttribute('disabled', 'true');
+                nextButton.classList.remove('valid');
+                nextButton.classList.add('invalid');
+                nextButton.setAttribute('disabled', 'true');
             }
         }
     </script>

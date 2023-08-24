@@ -6,7 +6,7 @@ $(function(){
 	    });
 	};
 
-	var textNodes = getTextNodesIn($("p, h1, h2, h3"));
+	//var textNodes = getTextNodesIn($("p, h1, h2, h3"));
 	var textNodes = getTextNodesIn($("*"));
 
 
