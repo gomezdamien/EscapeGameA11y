@@ -2,41 +2,46 @@ var normal;
 var tremorBasePx = 20;
 
 function sampleInt(magnitude) {
-    return normal[Math.round(Math.random() * normal.length)] * magnitude;
+  return normal[Math.round(Math.random() * normal.length)] * magnitude;
 }
 
-$(document).ready(function () {
-    var $cursor = $('#falsecursor');
-    var lastCursor = {clientX:0, clientY:0}
-    setInterval(function () {
-        var randX = sampleInt(tremorBasePx);
-        var randY = sampleInt(tremorBasePx);
-        $cursor.css({
-            'top': lastCursor.clientY + randY,
-            'left': lastCursor.clientX + randX,
-            'transition': 'top 0.2s, left 0.2s linear'
-        });
-    }, 200);
-    $(document).mousemove(function(e){lastCursor = e;});
-
-    $('#overlay').click(function (e) {
-        var x = parseInt($cursor.css('left'), 10);
-        var y = parseInt($cursor.css('top'), 10);
-        $(this).hide();
-        $cursor.hide();
-        var element = document.elementFromPoint(x, y);
-        $(this).show();
-        $cursor.show();
-        $(element).click();
+$(document).ready(function() {
+  var $cursor = $('#falsecursor');
+  var lastCursor = {
+    clientX: 0,
+    clientY: 0
+  }
+  setInterval(function() {
+    var randX = sampleInt(tremorBasePx);
+    var randY = sampleInt(tremorBasePx);
+    $cursor.css({
+      'top': lastCursor.clientY + randY,
+      'left': lastCursor.clientX + randX,
+      'transition': 'top 0.2s, left 0.2s linear'
     });
+  }, 200);
+  $(document).mousemove(function(e) {
+    lastCursor = e;
+  });
 
-    var clicks = 0;
-    $('#button').click(function () {
-        $(this).val('clicks: ' + (++clicks)).css({
-            'top': sampleInt(100) + 200,
-            'left': sampleInt(100) + 200
-        });
+  $('#overlay').click(function(e) {
+    var x = parseInt($cursor.css('left'), 10);
+    var y = parseInt($cursor.css('top'), 10);
+    $(this).hide();
+    $cursor.hide();
+    var element = document.elementFromPoint(x, y);
+    $(this).show();
+    $cursor.show();
+    $(element).click();
+  });
+
+  var clicks = 0;
+  $('#button').click(function() {
+    $(this).val('clicks: ' + (++clicks)).css({
+      'top': sampleInt(100) + 200,
+      'left': sampleInt(100) + 200
     });
+  });
 });
 
 
