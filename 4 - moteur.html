@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel=”stylesheet” type=”text/css” href=”./assets/dropzone-main/src/dropzone.scss” /><link
     <title>Handicap moteur</title>
 </head>
 <style>
@@ -51,6 +50,33 @@
             text-align: center;
         }
 
+        /* Styles for the pop-up container */
+        .popup {
+            display: block; /* Change 'none' to 'block' */
+            position: fixed;
+            text-align: justify;
+            width: 1000px;
+            height: 800px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            padding: 20px;
+        }
+
+        /* Styles for the close button */
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: none;
+            font-size: 20px;
+            color: #555;
+        }
+
         * {
             cursor: none;
         }
@@ -61,19 +87,37 @@
         <h1>Handicap moteur</h1>
         <div class="timer" id="timer">00:00:00</div>
     </div>
-    <a href="4.1 - simulation.html" class="link">Valider</a>
     <div id="simulatedCursor"></div>
-    <div class="container">
+    <a href="4.1 - simulation.html" class="link">Valider</a>
+    <div class="popup" id="popup">
+        <span id="close-popup" class="close-popup">X</span>
+        <h1>Handicap moteur</h1>
         <h2>Description</h2>
             <p>Les personnes atteintes de déficiences motrices rencontre divers obstacles lorsqu'elles naviguent sur Internet.<br/> Ces obstacles sont souvent liés à la capacité limitée de contrôler précisément les mouvements de la souris, du clavier ou d'autres dispositifs d'entrée</p>
         <h2>Le type d'utilisateurs que vous incarnez</h2>
             <p>Vous êtes dans la peau d'une personne avec un handicap moteur, vous avez donc de grandes difficultés à déplacer votre souris et à naviguer</p>
         <h2>Règles</h2>
-            <ul>
-                <li>Utiliser votre souris, et cliquer sur le bouton "Valider"</li>
-            </ul>
-            <div id="overlay" style="width: 100%; height: 100%; position: absolute; z-index: 2"></div>
-            <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png" style="position: absolute; z-index: 1" />
+        <ul>
+            <li>Utiliser uniquement votre souris</li>
+            <li>Fermer cette pop-up</li>
+            <li>cliquer sur le bouton "valider"</li>
+        </ul>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Get references to the close button and the popup
+    const closeButton = document.getElementById('close-popup');
+    const popup = document.getElementById('popup');
+
+    // Close the popup when the close button is clicked
+    closeButton.addEventListener('click', function () {
+        popup.style.display = 'none';
+    });
+});
+</script>
+    <div class="container">
+            <div id="overlay" style="width: 100%; height: 100%; position: absolute; z-index: 3"></div>
+            <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png" style="position: absolute; z-index: 2" />
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
