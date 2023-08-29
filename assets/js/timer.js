@@ -9,7 +9,7 @@ if (storedStartTime) {
     targetTime = parseInt(storedStartTime, 10);
 } else {
     // If no stored start time, set a new one (e.g., 5 minutes from now)
-    targetTime = Date.now() + 5 * 60 * 1000; // 5 minutes in milliseconds
+    targetTime = Date.now() + 60 * 60 * 1000; // 5 minutes in milliseconds
     localStorage.setItem('timerStartTime', targetTime);
 }
 
@@ -22,7 +22,7 @@ function updateTimer() {
 
     if (timeLeft <= 0) {
         clearInterval(interval);
-        timerElement.textContent = "Time's up!";
+        timerElement.textContent = "Fin du temps imparti";
     } else {
         const hours = Math.floor(timeLeft / (1000 * 60 * 60));
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
