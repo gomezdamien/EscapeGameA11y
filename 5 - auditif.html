@@ -41,7 +41,7 @@
             text-align: center;
         }
 
-        .link {
+        button {
             border: none;
             background-color: rgb(197, 90, 197);
             color: #fff;
@@ -50,23 +50,144 @@
             text-align: center;
         }
 
+        button:disabled {
+            border: none;
+            background-color: rgb(94, 94, 94);
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .audio-container {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+        audio {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            margin-left: 12%;
+        }
+
+        .response {
+            margin-top: 10px;
+
+        }
+
+
 </style>
 <body>
     <div class="header">
         <h1>Handicap auditif</h1>
+        <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
     </div>
     <div class="container">
         <h2>Description</h2>
-            <p>Texte de description</p>
+        <p></p>
+        <h2>Le type d'utilisateurs que vous incarnez</h2>
+            <p>Vous êtes malentendant... L'information transmise par les vidéos ou les pistes audio ne sont pas très utiles sans des sous-titres, de l'audio description et des transcriptions textuelles.</p>
+            <p>Par chance, un miracle vous rend peu à peu l'usage de vos oreilles... en échange d'un peu de votre temps</p>
         <h2>Règles</h2>
             <ul>
-                <li>point 1</li>
-                <li>point 2</li>
+                <li>5 fichiers audio sont écoutable</li>
+                <li>Le premier est actif, les autres apparaitront chacun leurs tours après l'écoute complète du précédent</li>
+                <li>Chaque son donne la bonne réponse</li>
+                <li>En commençant par le plus inaudible, le son s'améliore à chaque fois un peu</li>
+                <li>Entrer la bonne réponse sans perdre trop de temps...</li>
             </ul>
     </div>
+    <div class="audio-container">
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité profonde</p>
+            <audio id="audio1" controls>
+                <source src="./assets/mp3/audio1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité sévère</p>
+            <audio id="audio2" controls>
+                <source src="./assets/mp3/audio2.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité moyenne</p>
+            <audio id="audio3" controls>
+                <source src="./assets/mp3/audio3.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité légère</p>
+            <audio id="audio4" controls>
+                <source src="./assets/mp3/audio4.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Aucune surdité</p>
+            <audio id="audio5" controls>
+                <source src="./assets/mp3/audio5.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+</div>
+    <div class="response">
     <div>
-        <a href="3.1 - simulation.html" class="link">Valider</a>
+        <label for="reponse">Réponse :</label>
+        <input type="text" id="reponse">
+        <button id="valider" disabled>Valider</button>
     </div>
+    </div>
+    
+        <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const audio1 = document.getElementById('audio1');
+    const audio2 = document.getElementById('audio2');
+    const audio3 = document.getElementById('audio3');
+    const audio4 = document.getElementById('audio4');
+    const audio5 = document.getElementById('audio5');
+    const reponseInput = document.getElementById('reponse');
+    const validerButton = document.getElementById('valider');
+
+    // Désactive les fichiers audio 2, 3 et 4 au chargement de la page
+    audio2.style.display = 'none';
+    audio3.style.display = 'none';
+    audio4.style.display = 'none';
+    audio5.style.display = 'none';
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 1
+    audio1.addEventListener('ended', function () {
+        audio2.style.display = 'block'; // Affiche le fichier audio 2
+    });
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 2
+    audio2.addEventListener('ended', function () {
+        audio3.style.display = 'block'; // Affiche le fichier audio 3
+    });
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 3
+    audio3.addEventListener('ended', function () {
+        audio4.style.display = 'block'; // Affiche le fichier audio 4
+    });
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 3
+    audio4.addEventListener('ended', function () {
+        audio5.style.display = 'block'; // Affiche le fichier audio 5
+    });
+
+    // Écouteur d'événement pour l'input de réponse
+    reponseInput.addEventListener('input', function () {
+        if (reponseInput.value.trim() === "toto") {
+            validerButton.disabled = false; // Active le bouton Valider
+        } else {
+            validerButton.disabled = true; // Désactive le bouton Valider
+        }
+    });
+});
+        </script>
     <script src="./assets/js/timer.js"></script>
 </body>
 </html>
