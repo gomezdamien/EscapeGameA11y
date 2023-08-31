@@ -75,6 +75,10 @@
 
         }
 
+        #controls {
+            cursor: none;
+        }
+
 
 </style>
 <body>
@@ -93,52 +97,70 @@
                 <li>Le premier son est actif, les autres apparaitront chacun leurs tours après l'écoute complète du son précédent.</li>
                 <li>le son s'améliore à chaque fois, en suivant le niveau de perte de décibel défini par les 4 niveaux de surdité.</li>
                 <li>Mais je suis quand même sympa, Chaque son donne la bonne réponse.</li>
+                <li>Un dernier détail ... l'impatience mène au rafraichissement ... hihihi</li>
             </ul>
     </div>
     <div class="audio-container">
 
         <div class="audio-item">
             <p class="audio-label">Surdité profonde</p>
-            <audio id="audio1" controls>
-                <source src="./assets/mp3/audio1.mp3" type="audio/mpeg">
+            <audio id="audio1" controls >
+                <source src="./assets/mp3/sound-profonde.MP3" type="audio/mpeg">
             </audio>
         </div>
 
         <div class="audio-item">
             <p class="audio-label">Surdité sévère</p>
             <audio id="audio2" controls>
-                <source src="./assets/mp3/audio2.mp3" type="audio/mpeg">
+                <source src="./assets/mp3/sound-severe.MP3" type="audio/mpeg">
             </audio>
         </div>
 
         <div class="audio-item">
             <p class="audio-label">Surdité moyenne</p>
             <audio id="audio3" controls>
-                <source src="./assets/mp3/audio3.mp3" type="audio/mpeg">
+                <source src="./assets/mp3/sound-moyenne.MP3" type="audio/mpeg">
             </audio>
         </div>
 
         <div class="audio-item">
             <p class="audio-label">Surdité légère</p>
             <audio id="audio4" controls>
-                <source src="./assets/mp3/audio4.mp3" type="audio/mpeg">
+                <source src="./assets/mp3/sound-legere.MP3" type="audio/mpeg">
             </audio>
         </div>
 
         <div class="audio-item">
             <p class="audio-label">Aucune surdité</p>
             <audio id="audio5" controls>
-                <source src="./assets/mp3/audio5.mp3" type="audio/mpeg">
+                <source src="./assets/mp3/sound-bon.MP3" type="audio/mpeg">
             </audio>
         </div>
+
 </div>
     <div class="response">
     <div>
         <label for="reponse">Réponse :</label>
         <input type="text" id="reponse">
-        <button onclick="window.location='./5.1 - simulation.html'" id="valider" disabled>Valider</button>
+        <button onclick="window.location='./5.1-simulation-auditive.html'" id="valider" disabled>Valider</button>
     </div>
     </div>
+    <script>
+        // Fonction pour désactiver la barre de progression
+        function disableSeeking(audioId) {
+            var audioElement = document.getElementById(audioId);
+            audioElement.addEventListener('seeking', function() {
+                audioElement.currentTime = audioElement.currentTime;
+            });
+        }
+    
+        // Appliquer la fonction à chaque audio
+        disableSeeking('audio1');
+        disableSeeking('audio2');
+        disableSeeking('audio3');
+        disableSeeking('audio4');
+        disableSeeking('audio5');
+    </script>
     
         <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -178,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Écouteur d'événement pour l'input de réponse
     reponseInput.addEventListener('input', function () {
-        if (reponseInput.value.trim() === "toto") {
+        if (reponseInput.value.trim() === "Keller") {
             validerButton.disabled = false; // Active le bouton Valider
         } else {
             validerButton.disabled = true; // Désactive le bouton Valider
