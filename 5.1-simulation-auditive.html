@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Handicap cognitif - Simulation</title>
+<head>
+    <title>Formulaire avec Vérification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            font-size: 24px;
+            position: relative;
+            margin: 10px;
+        }
+
+        .header {
+            font-size: 50px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            top: 0;
+            padding: 100px;
+        }
+
+        .container {
+        text-align: justify;
+        display: grid;
+        grid-template-columns: line;
+        gap: 10px;
+        position: relative;
+        top: 5%;
+        right: 10px;
+      }
+
+      .valid {
+          border: none;
+            background-color: rgb(197, 90, 197);
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 100px;
+            text-decoration: none;
+        }
+
+        .invalid {
+            opacity: 0;
+        }
+
+      .video-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      
+      .form-container {
+          text-align: justify;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        </style>
+</head>
+<body>
+  <div class="header">
+    <h1>5.1 - simulation auditive</h1>
+    <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
+  </div>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/BMB_REWQHy4?si=uFhkz3-Vax4JQMgl" title="vidéo youtube - énigme auditive" frameborder="0" allow="picture-in-picture"></iframe>
+      <div class="form-container">
+        <form id="myForm">
+          <label >Réponse <input class="form-input" type="text" id="reponse" aria-label="reponse"></label>
+        </form>
+      </div>
+    </div>
+    <div>
+      <a class="next-link invalid" href="6-fin.html" id="valider" aria-label="valider" disabled>valider</a>
+    </div>
+    <script>
+    const formInputs = document.querySelectorAll('.form-input');
+    const nextLink = document.getElementById('valider');
+
+    formInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            validateForm();
+        });
+    });
+
+    function validateForm() {
+        const reponse = document.getElementById('reponse').value;
+
+        if (reponse === 'Clair de lune') {
+            nextLink.classList.remove('invalid');
+            nextLink.classList.add('valid');
+            nextLink.removeAttribute('disabled');
+        } else {
+            nextLink.classList.remove('valid');
+            nextLink.classList.add('invalid');
+            nextLink.setAttribute('disabled', 'true');
+        }
+    }
+  </script>
+    <script src="./assets/js/timer.js"></script>
+</body>
+</html>
