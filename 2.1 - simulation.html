@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Handicap visuel - Simulation</title>
     <link href="assets/css/black.css" rel="stylesheet">
+    <link href="./assets/css/braille-small.css" rel="stylesheet" type="text/css">
+    <script src="./assets/js/braille-tools.js" type="text/javascript" charset="utf-8"></script>
 <head>
     <title>Formulaire avec Vérification</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -37,10 +40,11 @@
         .valid {
             cursor: pointer;
             background-color: #4caf50;
+            opacity: 0;
         }
 
         .invalid {
-            opacity: 0.5;
+            opacity: 0;
         }
 
       #text-bloc {
@@ -48,8 +52,8 @@
             padding: 20px;
             background-color: #ffffff;
             text-align: center;
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 50px;
             position: fixed;
             top: 10px;
             left: 10px;
@@ -62,6 +66,7 @@
         top: 5%;
         right: 10px;
       }
+
         </style>
 </head>
   <div id="text-bloc"></div>
@@ -71,39 +76,66 @@
 
       function updateTextBloc(event) {
         var target = event.target;
-        var accessibleName = target.getAttribute('aria-label', 'placeholder') || target.innerText || target.value || '';
-
-        textBloc.textContent = accessibleName;
+        var accessibleName = target.getAttribute('aria-label') || target.innerText || target.value || '';
+        
+        if(target.getAttribute("class") == "form-input"){
+          textBloc.innerHTML = br.braille(accessibleName);
+        }
+        else textBloc.innerHTML = accessibleName;
+        
       }
 
       document.addEventListener('focusin', updateTextBloc);
       document.addEventListener('focusout', function() {
-        textBloc.textContent = '';
+        textBloc.innerHTML = '';
       });
     });
   </script>  
 <body>
     <div class="form-container">
+<<<<<<< HEAD
         <h1>2.1 - Expérience Visuel</h1>
                 <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
         <div class="container"></div>
           <h2>Énigme</h2>
           <a href="">Facile de rentrer ses coordonées dans un formulaire, mais moi Louis, j'ai dû m'échiner de toutes mes forces pour que mon handicap ne m'entrave pas (faut dire que j'avais le cuir épais).<br/> Même si je dois y retourner tous les jours pour y suivre un enseignement non adapté, je met un POINT d'honneur à inventer et perfectionner mon système. <br/>En tout cas le résultat est là, mon invention m'a survécu et continue d'aider tout ceux qui en ont besoin, j'ai même été déplacé en tant que personnalité, pour la postérité.</a>
+=======
+        <h1>2.1 - Expérience non Visuelle</h1>
+                <div class="timer" id="timer">00:00:00</div>
+        <div class="container"></div>
+        <h2>Le type d'utilisateur</h2>
+        <p tabindex="1">Ici, vous vous frottez au handicap numérique le plus impactant : aveugle ou très mal-voyant.
+          <h2 href="">Énigme</h2>
+          <a href="">Difficile de savoir ou l'on va dans le noir hein ?</a>
+          <a href="">Heureusement... il y a le clavier...</a>
+          <a href="">Et puis c'est très facile de rentrer des valeurs dans un formulaire</a>
+          <a href="">...enfin...</a>
+          <a href="">Il ne reste qu'à savoir QUOI rentrer ...</a>
+          <a href="">et ou ...?</a>
+          <a href="">Allez je suis sympa, je vais laisser un label sur les champs de formulaire.</a>
+          <a href="">Énigme :</a>
+          <a href="">Moi, Louis, j'ai dû travailler de toutes mes forces pour que mon handicap ne m'entrave pas.</a>
+          <a href="">(mon père me disait que j'avais le cuir épais)</a>
+          <a href="">Même si je dois y retourner tous les jours pour y suivre un enseignement non adapté,</a>
+          <a href="">je mets un POINT d'honneur à y travailler, inventer et perfectionner mon système.</a>
+          <a href="">En tout cas le résultat est là, mon invention m'a survécu et est devenu la norme,</a>
+          <a href=""> j'ai même été déplacé pendant mon repos en tant que personnalité...</a>
+          <a href="">pour la postérité.</a>
+          <a href="">Formulaire :</a>
+>>>>>>> main
         <form id="myForm">
-            <input class="form-input" type="text" id="nom" aria-label="Nom - champ obligatoire">
-            <input class="form-input" type="text" id="prenom" aria-label="Prénom - champ obligatoire">
-            <input class="form-input" type="text" id="naissance" aria-label="date - format jj/mm/yyyy - champ obligatoire">
-            <input class="form-input" type="text" id="adresse" aria-label="lieu - champ obligatoire">
-            <input class="form-input" type="text" id="adresse2" aria-label="adresse">
-            <input class="form-input" type="text" id="mort" aria-label="date - format jj/mm/yyyy - champ obligatoire">
-            <input class="form-input" type="text" id="ville" aria-label="lieu - champ obligatoire">
+            <input class="form-input" type="text" id="nom" aria-label="Nom">
+            <input class="form-input" type="text" id="prenom" aria-label="Prénom">
+            <input class="form-input" type="text" id="naissance" aria-label="naissance">
+            <input class="form-input" type="text" id="mort" aria-label="mort">
+            <input class="form-input" type="text" id="ville" aria-label="lieu de repos">
         </form>
-        <a class="next-link invalid" href="3 - cognitif.html" id="valider" aria-label="valider" disabled>valider</a>
+        <button type="button" onclick="window.location='./3 - cognitif.html'" class="next-button invalid" id="valider" aria-label="valider" disabled>valider</button>
     </div>
-
+    
     <script>
         const formInputs = document.querySelectorAll('.form-input');
-        const nextLink = document.getElementById('valider');
+        const nextButton = document.getElementById('valider');
 
         formInputs.forEach(input => {
             input.addEventListener('input', () => {
@@ -115,22 +147,20 @@
             const nom = document.getElementById('nom').value;
             const prenom = document.getElementById('prenom').value;
             const naissance = document.getElementById('naissance').value;
-            const adresse = document.getElementById('adresse').value;
-            const adresse2 = document.getElementById('adresse2').value;
             const mort = document.getElementById('mort').value;
             const ville = document.getElementById('ville').value;
 
-            if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && adresse === 'institution royale des jeunes aveugles' && adresse2 === '' && mort === '06/01/1852' && ville === 'panthéon') {
-                nextLink.classList.remove('invalid');
-                nextLink.classList.add('valid');
-                nextLink.removeAttribute('disabled');
+            if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && mort === '06/01/1852' && ville === 'panthéon') {
+                nextButton.classList.remove('invalid');
+                nextButton.classList.add('valid');
+                nextButton.removeAttribute('disabled');
             } else {
-                nextLink.classList.remove('valid');
-                nextLink.classList.add('invalid');
-                nextLink.setAttribute('disabled', 'true');
+                nextButton.classList.remove('valid');
+                nextButton.classList.add('invalid');
+                nextButton.setAttribute('disabled', 'true');
             }
         }
     </script>
-    <script src="./assets/js/timer2.js"></script>
+    <script src="./assets/js/timer.js"></script>
 </body>
 </html>

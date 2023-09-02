@@ -19,6 +19,10 @@ function rotateLetter(letter) {
   const rotationMap = {
     b: 'd', d: 'b', p: 'q', q: 'p', 
     n: 'u', u: 'n', m:'w', w:'m',
+    v: 'y', y:'v', e:'a', a:'e',
+    j:'l', l:'j', t:'j', j:'t',
+    r:'f', f:'r'
+,
     // Vous pouvez ajouter plus de correspondances ici
   };
   return rotationMap[letter] || letter;
@@ -37,4 +41,4 @@ function updateSimulatedText() {
   simulateTextInElements(allTextElements);
 }
 
-setInterval(updateSimulatedText, 2000); // Mettre à jour toutes les 2 secondes
+setInterval(updateSimulatedText, 500); // Mettre à jour toutes les 2 secondes
