@@ -136,11 +136,11 @@
         });
 
         function validateForm() {
-            const nom = document.getElementById('nom').value;
-            const prenom = document.getElementById('prenom').value;
+            const nom = document.getElementById('nom').value.toLowerCase();
+            const prenom = document.getElementById('prenom').value.toLowerCase();
             const naissance = document.getElementById('naissance').value;
             const mort = document.getElementById('mort').value;
-            const ville = document.getElementById('ville').value;
+            const ville = document.getElementById('ville').value.toLowerCase();
 
             if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && mort === '06/01/1852' && ville === 'panthéon') {
                 nextButton.classList.remove('invalid');

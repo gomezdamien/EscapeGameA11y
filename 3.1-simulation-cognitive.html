@@ -107,11 +107,11 @@
       });
 
       function validateForm() {
-          const premier = document.getElementById('premier').value;
-          const deuxième = document.getElementById('deuxième').value;
-          const troisième = document.getElementById('troisième').value;
+          const premier = document.getElementById('premier').value.toLowerCase();
+          const deuxième = document.getElementById('deuxième').value.toLowerCase();
+          const troisième = document.getElementById('troisième').value.toLowerCase();
 
-          if (premier === 'Einstein' && deuxième === 'Christie' && troisième === 'Darwin') {
+          if (premier === 'einstein' && deuxième === 'christie' && troisième === 'darwin') {
               nextLink.classList.remove('invalid');
               nextLink.classList.add('valid');
               nextLink.removeAttribute('disabled');

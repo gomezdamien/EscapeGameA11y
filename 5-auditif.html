@@ -200,10 +200,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Écouteur d'événement pour l'input de réponse
     reponseInput.addEventListener('input', function () {
-        if (reponseInput.value.trim() === "Keller") {
-            validerButton.disabled = false; // Active le bouton Valider
+        const reponse = reponseInput.value.trim().toLowerCase(); // Convertir en minuscules
+        const reponseAttendue = 'helen keller';
+
+        if (reponse === reponseAttendue) {
+            validerButton.disabled = false; // Activer le bouton Valider
         } else {
-            validerButton.disabled = true; // Désactive le bouton Valider
+            validerButton.disabled = true; // Désactiver le bouton Valider
         }
     });
 });

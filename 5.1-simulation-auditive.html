@@ -100,9 +100,9 @@
     });
 
     function validateForm() {
-        const reponse = document.getElementById('reponse').value;
+        const reponse = document.getElementById('reponse').value.toLowerCase();
 
-        if (reponse === 'Clair de lune') {
+        if (reponse === 'clair de lune') {
             nextLink.classList.remove('invalid');
             nextLink.classList.add('valid');
             nextLink.removeAttribute('disabled');
