@@ -1,20 +1,22 @@
 const overlay = document.getElementById('overlay');
 const content = document.getElementById('content');
 
-const messages = [
-  "Concentrez-vous...",
-  "J'ai bien fermé ma voiture avant de partir ?",
-  "haha regarde la tête de ton voisin de gauche !!",
-  "Tiens, il pleut aujourd'hui",
-];
-
 function getRandomImageURL() {
   // Remplacez par vos URLs d'images réelles
   const imageUrls = [
     "./assets/img/Porte_ferme.png",
     "./assets/img/hungry.png",
     "./assets/img/voisin.png",
-    "./assets/img/monkey.png"
+    "./assets/img/monkey.png",
+    "./assets/img/calc.png",
+    "./assets/img/a11y-baba.png",
+    "./assets/img/alice.png",
+    "./assets/img/petit-dej.png",
+    "./assets/img/coude.png",
+    "./assets/img/ce-soir.png",
+    "./assets/img/helico.png",
+    "./assets/img/nyan-cat.png",
+    "./assets/img/impots.png",
   ];
   const randomIndex = Math.floor(Math.random() * imageUrls.length);
   return imageUrls[randomIndex];

@@ -91,32 +91,35 @@
         </form>
     </div>
     <div>
-      <a class="next-link invalid" href="5-auditif.html" id="valider" aria-label="valider" disabled>valider</a>
+        <a class="next-link invalid" href="5-auditif.html" id="valider" aria-label="valider" disabled>valider</a>
     </div>
     <script>
-      const formInputs = document.querySelectorAll('.form-input');
-      const nextLink = document.getElementById('valider');
+    const formInputs = document.querySelectorAll('.form-input');
+    const nextLink = document.getElementById('valider');
 
-      formInputs.forEach(input => {
-          input.addEventListener('input', () => {
-              validateForm();
-          });
-      });
+    formInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            validateForm();
+        });
+    });
 
-      function validateForm() {
-    const reponse = document.getElementById('inputField').value.toLowerCase();
-    const reponseAttendue = 'stephen hawking';
+    function validateForm() {
+        const reponse = document.getElementById('inputField').value.toLowerCase();
+        const reponseAttendue = 'stephen hawking';
 
-    if (reponse === reponseAttendue) {
-        nextLink.classList.remove('invalid');
-        nextLink.classList.add('valid');
-        nextLink.removeAttribute('disabled');
-    } else {
-        nextLink.classList.remove('valid');
-        nextLink.classList.add('invalid');
-        nextLink.setAttribute('disabled', 'true');
+        if (reponse === reponseAttendue) {
+            nextLink.classList.remove('invalid');
+            nextLink.classList.add('valid');
+            nextLink.removeAttribute('disabled');
+        } else {
+            nextLink.classList.remove('valid');
+            nextLink.classList.add('invalid');
+            nextLink.setAttribute('disabled', 'true');
+        }
     }
-}
+
+    // Appel initial pour désactiver le lien au chargement de la page
+    validateForm();
     </script>
 <script>
     const inputField = document.getElementById('inputField');
