@@ -5,11 +5,11 @@ function getRandomImageURL() {
   // Remplacez par vos URLs d'images réelles
   const imageUrls = [
     "./assets/img/Porte_ferme.png",
-    "./assets/img/hungry.png",
+    "./assets/img/Hungry.png",
     "./assets/img/voisin.png",
     "./assets/img/monkey.png",
     "./assets/img/calc.png",
-    "./assets/img/a11y-baba.png",
+    "./assets/img/A11y-baba.png",
     "./assets/img/alice.png",
     "./assets/img/petit-dej.png",
     "./assets/img/coude.png",
