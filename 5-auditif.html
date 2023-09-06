@@ -202,9 +202,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Écouteur d'événement pour l'input de réponse
     reponseInput.addEventListener('input', function () {
         const reponse = reponseInput.value.trim().toLowerCase(); // Convertir en minuscules
-        const reponseAttendue = 'helen keller';
 
-        if (reponse === reponseAttendue) {
+        if (reponse === 'helen keller' === 'keller') {
             validerButton.disabled = false; // Activer le bouton Valider
         } else {
             validerButton.disabled = true; // Désactiver le bouton Valider
