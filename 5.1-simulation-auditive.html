@@ -102,7 +102,7 @@
     function validateForm() {
         const reponse = document.getElementById('reponse').value.toLowerCase();
 
-        if (reponse === 'clair de lune' === 'sonate au clair de lune') {
+        if (reponse === 'clair de lune' || reponse === 'sonate au clair de lune') {
             nextLink.classList.remove('invalid');
             nextLink.classList.add('valid');
             nextLink.removeAttribute('disabled');
