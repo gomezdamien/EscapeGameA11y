@@ -26,19 +26,22 @@
         .container {
             background-color: #fff;
             padding: 20px;
-            border: 1px solid #ccc;
-            text-align: justify;
+            text-align: center;
+            margin: 20px;
         }
 
-        .description {
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        a {
+            border: none;
+            background-color: rgb(197, 90, 197);
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-align: center;
         }
+
         *,
         *::before,
         *::after {
-        margin: 0;
         padding: 0;
         box-sizing: border-box;
         }
@@ -118,9 +121,9 @@
     </div>
     
     <div class="container">
-        <h2>Description</h2>
-        <p></p>
-</div>
+        <p><strong>Attention, on s'échauffe bien, on boit de l'eau (c'est important), et on clic sur "Commencer" !</strong></p>
+        <a href="1-introduction.html">COMMENCER</a>
+    </div>
 
 <div class="carousel">
     <div class="carousel-slider">
@@ -228,6 +231,7 @@ const carousel = (elCarousel) => {
       className: "carousel-bullet",
       onclick: () => goto(i)
     });
+    elBtn.setAttribute("tabindex", "-1");
     elsBtns.push(elBtn);
   }
 
@@ -243,7 +247,8 @@ const carousel = (elCarousel) => {
 
   // Pause on pointer enter:
   elCarousel.addEventListener("pointerenter", () => stop());
-  elCarousel.addEventListener("focus", () => stop());
+  elNext.addEventListener("focus", () => stop());
+  elPrev.addEventListener("focus", () => stop());
   elCarousel.addEventListener("pointerleave", () => play());
 
   // Init:
