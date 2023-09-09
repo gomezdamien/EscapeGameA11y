@@ -1,6 +1,6 @@
 # EscapeGameA11y
 
-URL de l'escape game : https://damiengomez.github.io/EscapeGameA11y/1-introduction.html
+URL de l'escape game : https://damiengomez.github.io/EscapeGameA11y/0-start.html
 
 Le site comportera 12 pages : (5 pages de description de l'énigme à venir et 6 pages comprennant le contenu et les énigmes)
 
