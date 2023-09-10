@@ -18,7 +18,6 @@
             background-color: #000;
             color: #fff;
             text-align: center;
-            position: static;
             top: 0;
             padding: 100px;
         }
@@ -26,91 +25,39 @@
         .container {
             background-color: #fff;
             padding: 20px;
-            text-align: center;
+            text-align: justify;
             margin: 20px;
         }
 
-        a {
+        .link-start {
             border: none;
             background-color: rgb(197, 90, 197);
             color: #fff;
             border-radius: 20px;
             padding: 10px 20px;
             text-align: center;
+            text-decoration: none;
         }
 
-        *,
-        *::before,
-        *::after {
-        padding: 0;
-        box-sizing: border-box;
+        .image-container {
+          text-align: justify;
+          column-width: max-content;
+          column-count: 2;
         }
 
-        .carousel {
-        position: relative;
-        overflow: hidden;
-        font-size: 2.5vmin;
+        .start-container {
+          background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 20px;
         }
 
-        .carousel-slider {
-        display: flex;
-        transition: 0.6s;
+        .social-media-d {
+          display: inline;
         }
 
-        .carousel-slide {
-        flex: 1 0 100%;
-        }
-
-        .carousel-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        }
-
-        .carousel button {
-        font-size: inherit;
-        }
-
-        .carousel-prev,
-        .carousel-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 1em;
-        border: none;
-        cursor: pointer;
-        }
-
-        .carousel-prev {
-        left: 2em;
-        }
-
-        .carousel-next {
-        right: 2em;
-        }
-
-        .carousel-navigation {
-        position: absolute;
-        bottom: 1em;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        gap: 1em;
-        }
-
-        .carousel-bullet {
-        width: 1em;
-        height: 1em;
-        border: none;
-        background: #fff;
-        cursor: pointer;
-        border-radius: 50%;
-        }
-
-        .carousel-bullet.is-active {
-        background: #000000;
+        .social-media-z {
+          display: inline;
         }
     </style>
 
@@ -121,21 +68,33 @@
     </div>
     
     <div class="container">
-        <p><strong>Attention, on s'échauffe bien, on boit de l'eau (c'est important), et on clic sur "Commencer" !</strong></p>
-        <a href="1-introduction.html">COMMENCER</a>
+        <p>Vous êtes dans la salle d'attente de notre escape game, si vous avez assez d'imagination, vous entendrez même une petite musique d'ascenseur.</p>
+        <p>Profitez de ce moment d'attente pour aller voir le profile de vos futures <strong>tortionnaires</strong>.</p>
     </div>
 
-<div class="carousel">
-    <div class="carousel-slider">
-      <div class="carousel-slide">
-        <img src="./assets/img/DarthDamius.png" alt="Damien GOMEZ - Expert accessibilité">
+<div class="image-container">
+      <div>
+        <img src="./assets/img/DarthDamius.png" width="800px" height="300px" alt="Damien GOMEZ - Expert accessibilité">
       </div>
-      <div class="carousel-slide">
-        <img src="./assets/img/darthZougane.png" alt="Zougane HAFFEZ - Expert accessibilité">
-    </div>
-  </div>
+      <div style="text-align: justify";>
+          <a class="social-media-d" href="https://www.linkedin.com/in/gomezdamienrdq/"><img src="./assets/img/Linkedin-logo.png" width="44px" height="44px" alt="Linkedin de Damien GOMEZ"/></a></li> 
+          <a class="social-media-d" href="https://twitter.com/damiengqan"><img src="./assets/img/X.png" width="44px" height="44px" alt="Twitter de Damien GOMEZ"/></a></li>
+      </div>
+      <div>
+        <img src="./assets/img/darthZougane.png" width="800px" height="300px" alt="Zougane HAFFEZ - Expert accessibilité"/>
+      </div>
+      <div style="text-align: justify";>
+          <a class="social-media-z" href="https://www.linkedin.com/in/zougane-haffez-b19a3b7/"><img src="./assets/img/Linkedin-logo.png" width="44px" height="44px" alt="Linkedin de Zougane HAFFEZ"/></a></li>
+          <a class="social-media-z" href="https://twitter.com/zougane"><img src="./assets/img/X.png" width="44px" height="44px" alt="Twitter de Zougane HAFFEZ"/></a></li>
+      </div>
+</div>
 
-  <script>
+  <div class="start-container">
+    <p><strong>Attention, on s'échauffe bien, on boit de l'eau (c'est important), et on clic sur "Commencer" !</strong></p>
+    <a class="link-start" href="1-introduction.html">COMMENCER</a>
+</div>
+
+  <!-- <script>
 
     // DOM utility functions:
 
@@ -271,7 +230,7 @@ const carousel = (elCarousel) => {
 // Allows to use multiple carousels on the same page:
 els(".carousel").forEach(carousel);
 
-  </script>
+  </script> -->
 
         <script src="assets/tarteaucitron/tarteaucitron.js"></script>
 
