@@ -41,15 +41,16 @@
         }
 
         .valid {
-            cursor: pointer;
-            background-color: #4caf50;
-            opacity: 0;
+          border: none;
+            background-color: black;
+            color: black;
+            text-align: center;
+            text-decoration: none;
         }
 
         .invalid {
             opacity: 0;
         }
-
       #text-bloc {
             border: 2px solid #000000;
             padding: 20px;
@@ -104,19 +105,18 @@
           <h2 href="">Énigme</h2>
           <a href="">Difficile de savoir où l'on va dans le noir hein ?</a>
           <a href="">Heureusement... il y a le clavier...</a>
-          <a href="">Et puis c'est très facile de rentrer des valeurs dans un formulaire</a>
+          <a href="">Et puis, c'est très facile de rentrer des valeurs dans un formulaire</a>
           <a href="">...enfin...</a>
           <a href="">Il ne reste qu'à savoir QUOI rentrer ...</a>
           <a href="">et où ...?</a>
           <a href="">Allez je suis sympa, je vais laisser un label sur les champs de formulaire.</a>
-          <a href="">Et puis si il devait y avoir des dates, ce serait au format jj/mm/aaaa ... ça c'est sur.</a>
+          <a href="">Et puis, si il devait y avoir des dates, ce serait au format jj/mm/aaaa ... ça c'est sur.</a>
           <a href="">Énigme :</a>
-          <a href="">Moi, Louis, j'ai dû travailler de toutes mes forces pour que mon handicap ne m'entrave pas.</a>
+          <a href="">Moi, Louis, j'ai dû travailler de toutes mes forces pour que mon handicap ne m'entrave pas</a>
           <a href="">(mon père me disait que j'avais le cuir épais)</a>
-          <a href="">Même si je dois y retourner tous les jours pour y suivre un enseignement non adapté,</a>
           <a href="">je mets un POINT d'honneur à y travailler, inventer et perfectionner mon système.</a>
-          <a href="">En tout cas le résultat est là, mon invention m'a survécu et est devenue la norme.</a>
-          <a href=""> j'ai même été déplacé pendant mon repos en tant que personnalité...</a>
+          <a href="">En tout cas, le résultat est là, mon invention m'a survécue et est devenue la norme.</a>
+          <a href="">J'ai même été déplacé pendant mon repos en tant que personnalité...</a>
           <a href="">pour la postérité.</a>
           <a href="">Formulaire :</a>
         <form id="myForm">
@@ -126,7 +126,9 @@
             <input class="form-input" type="text" required id="mort" aria-label="mort">
             <input class="form-input" type="text" required id="ville" aria-label="lieu de repos">
         </form>
-        <button type="submit" onclick="window.location='./3-cognitif.html'" class="next-button invalid" id="valider" aria-label="valider" disabled></button>
+        <div>
+          <a class="next-link invalid" href="3-cognitif.html" id="valider" aria-label="valider" disabled>valider</a>
+          </div>
     </div>
     
     <script>
@@ -140,11 +142,11 @@
         });
 
         function validateForm() {
-            const nom = document.getElementById('nom').value.toLowerCase();
-            const prenom = document.getElementById('prenom').value.toLowerCase();
+            const nom = document.getElementById('nom').value.ignoreCase();
+            const prenom = document.getElementById('prenom').value.ignoreCase();
             const naissance = document.getElementById('naissance').value;
             const mort = document.getElementById('mort').value;
-            const ville = document.getElementById('ville').value.toLowerCase();
+            const ville = document.getElementById('ville').value.ignoreCase();
 
             if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && mort === '06/01/1852' && ville === 'panthéon' || ville === 'pantheon') {
                 nextButton.classList.remove('invalid');
