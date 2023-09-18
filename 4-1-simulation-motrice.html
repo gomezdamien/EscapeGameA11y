@@ -113,7 +113,7 @@
     });
 
     function validateForm() {
-        const reponse = document.getElementById('inputField').value.toLowerCase();
+        const reponse = document.getElementById('inputField').value.ignoreCase();
         const reponseAttendue = 'stephen hawking';
 
         if (reponse === reponseAttendue) {

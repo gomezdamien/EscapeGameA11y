@@ -103,7 +103,7 @@
     });
 
     function validateForm() {
-        const reponse = document.getElementById('reponse').value.toLowerCase();
+        const reponse = document.getElementById('reponse').value.ignoreCase();
 
         if (reponse === 'clair de lune' || reponse === 'sonate au clair de lune') {
             nextLink.classList.remove('invalid');
