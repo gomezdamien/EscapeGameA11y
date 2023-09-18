@@ -44,24 +44,22 @@
             text-align: center;
         }
 
-        button {
-            border: none;
+        .valid {
+          border: none;
             background-color: rgb(197, 90, 197);
             color: #fff;
             border-radius: 20px;
             padding: 10px 20px;
+            font-size: 24px;
             text-align: center;
-            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
         }
 
-        button:disabled {
-            border: none;
-            background-color: rgb(94, 94, 94);
-            color: #fff;
-            border-radius: 20px;
-            padding: 10px 20px;
-            text-align: center;
+        .invalid {
+            opacity: 0;
         }
+
 
         .audio-container {
             display: grid;
@@ -146,7 +144,7 @@
     <div>
         <label for="reponse">Réponse :</label>
         <input type="text" id="reponse">
-        <button onclick="window.location='./5-1-simulation-auditive.html'" id="valider" disabled>Valider</button>
+        <a class="next-link invalid" href="5-1-simulation-auditive.html" id="valider" aria-label="valider" disabled>valider</a>
     </div>
     </div>
     <script>
@@ -204,14 +202,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Écouteur d'événement pour l'input de réponse
     reponseInput.addEventListener('input', function () {
-        const reponse = reponseInput.value.trim().ignoreCase(); // Convertir en minuscules
+    const reponse = reponseInput.value.trim().toLowerCase();
 
-        if (reponse === 'helen keller' || reponse === 'keller') {
-            validerButton.disabled = false; // Activer le bouton Valider
-        } else {
-            validerButton.disabled = true; // Désactiver le bouton Valider
-        }
-    });
+    if (reponse === 'helen keller' || reponse === 'keller') {
+        validerButton.classList.remove('invalid');
+        validerButton.classList.add('valid');
+        validerButton.disabled = false;
+    } else {
+        validerButton.classList.remove('valid');
+        validerButton.classList.add('invalid');
+        validerButton.disabled = true;
+    }
+});
+
 });
         </script>
     <script src="./assets/js/timer.js"></script>
