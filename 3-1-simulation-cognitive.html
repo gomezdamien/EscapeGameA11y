@@ -110,9 +110,9 @@
       });
 
       function validateForm() {
-          const premier = document.getElementById('premier').value.ignoreCase();
-          const deuxième = document.getElementById('deuxième').value.ignoreCase();
-          const troisième = document.getElementById('troisième').value.ignoreCase();
+          const premier = document.getElementById('premier').value.toLowerCase();
+          const deuxième = document.getElementById('deuxième').value.toLowerCase();
+          const troisième = document.getElementById('troisième').value.toLowerCase();
 
           if (premier === 'albert einstein' || premier === 'einstein' && deuxième === 'agatha christie' || deuxième === 'christie' && troisième === 'charles darwin' || troisième === 'darwin') {
               nextLink.classList.remove('invalid');
