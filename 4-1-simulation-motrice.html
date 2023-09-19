@@ -96,13 +96,18 @@
         </div>
         <div class="form-container">
         <form>
-        <label >Réponse <input class="form-input" type="text" id="inputField" aria-label="Réponse attendu"></label>
+        <label >Réponse <input class="form-input" type="text" id="inputField" onpaste="return false;" aria-label="Réponse attendu"></label>
         </form>
     </div>
     <div>
         <button onclick="window.location='./5-auditif.html'" id="valider" aria-label="valider" disabled>Valider</button>
     </div>
     <script>
+    // empêcher les utilisateur de copier/coller
+    document.getElementById('inputField').onpaste = function(){
+    alert('Non non, pas de triche avec le copier/coller');
+    return false;
+};
     const formInputs = document.querySelectorAll('.form-input');
     const nextLink = document.getElementById('valider');
 
