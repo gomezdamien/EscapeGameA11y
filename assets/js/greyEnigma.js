@@ -32,7 +32,7 @@ function invalidSequence() {
     // Supprimer le message d'erreur après 5 secondes
     setTimeout(() => {
         messageInvalidDiv.textContent = '';
-    }, 4000); // Le message d'erreur sera supprimé après 5 secondes
+    }, 2000); // Le message d'erreur sera supprimé après 5 secondes
 }
 
 // Ajouter un gestionnaire d'événement à chaque bouton
