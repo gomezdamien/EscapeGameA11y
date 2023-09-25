@@ -2,6 +2,15 @@
 
 URL de l'escape game : https://damiengomez.github.io/EscapeGameA11y/0-start.html
 
+## pour transmettre le lien
+Utilisation du service ouvaton.link (raccourcisseur d'url) héberger par ouvaton.coop. 
+
+Notre url courte est donc 
+https://ouvaton.link/KNSw14
+
+Sur cette page : https://ouvaton.link/
+On y trouvera également un QRCode et des statistiques d'utilisation du lien.
+## Description
 Le site comportera 12 pages : (5 pages de description de l'énigme à venir et 6 pages comprennant le contenu et les énigmes)
 
 ## Introduction
