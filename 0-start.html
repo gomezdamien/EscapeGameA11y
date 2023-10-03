@@ -62,6 +62,12 @@
         .social-media-z {
           display: inline;
         }
+
+        footer {
+          font-size: 10px;
+          text-align: center;
+        }
+        
     </style>
 
 </head>
@@ -96,191 +102,8 @@
     <p><strong>Attention !!! On s'échauffe bien pour éviter les claquages, on boit de l'eau (c'est important), et on clic sur "Introduction" !</strong></p>
     <a class="link-start" href="1-introduction.html">INTRODUCTION</a>
 </div>
-
-  <!-- <script>
-
-    // DOM utility functions:
-
-const el = (sel, par) => (par || document).querySelector(sel);
-const els = (sel, par) => (par || document).querySelectorAll(sel);
-const elNew = (tag, prop) => Object.assign(document.createElement(tag), prop);
-
-// Helper functions:
-
-const mod = (n, m) => (n % m + m) % m;
-
-// Task: Carousel:
-
-const carousel = (elCarousel) => {
-
-  const animation = 500;
-  const pause = 5000;
-  // Or use something like: const animation = Math.abs(elCarousel.dataset.carouselAnimation ?? 500);
-
-  const elCarouselSlider = el(".carousel-slider", elCarousel);
-  const elsSlides = els(".carousel-slide", elCarouselSlider);
-  const elsBtns = [];
-
-  let itv; // Autoslide interval
-  let tot = elsSlides.length; // Total slides
-  let c = 0;
-
-  if (tot < 2) return; // Not enough slides. Do nothing.
-
-  // Methods:
-  const anim = (ms = animation) => {
-    const cMod = mod(c, tot);
-    // Move slider
-    elCarouselSlider.style.transitionDuration = `${ms}ms`;
-    elCarouselSlider.style.transform = `translateX(${(-c - 1) * 100}%)`;
-    // Handle active classes (slide and bullet)
-    elsSlides.forEach((elSlide, i) => elSlide.classList.toggle("is-active", cMod === i));
-    elsBtns.forEach((elBtn, i) => elBtn.classList.toggle("is-active", cMod === i));
-  };
-
-  const prev = () => {
-    if (c <= -1) return; // prevent blanks on fast prev-click
-    c -= 1;
-    anim();
-  };
-
-  const next = () => {
-    if (c >= tot) return; // prevent blanks on fast next-click
-    c += 1;
-    anim();
-  };
-
-  const goto = (index) => {
-    c = index;
-    anim();
-  };
-
-  const play = () => {
-    itv = setInterval(next, pause + animation);
-  };
-
-  const stop = () => {
-    clearInterval(itv);
-  };
-
-  // Buttons:
-
-  const elPrev = elNew("button", {
-    type: "button",
-    className: "carousel-prev",
-    innerHTML: "<span>Prev</span>",
-    onclick: () => prev(),
-  });
-
-  const elNext = elNew("button", {
-    type: "button",
-    className: "carousel-next",
-    innerHTML: "<span>Next</span>",
-    onclick: () => next(),
-  });
-
-  // Navigation:
-
-  const elNavigation = elNew("div", {
-    className: "carousel-navigation",
-  });
-
-  // Navigation bullets:
-
-  for (let i = 0; i < tot; i++) {
-    const elBtn = elNew("button", {
-      type: "button",
-      className: "carousel-bullet",
-      onclick: () => goto(i)
-    });
-    elBtn.setAttribute("tabindex", "-1");
-    elsBtns.push(elBtn);
-  }
-
-
-  // Events:
-
-  // Infinite slide effect:
-  elCarouselSlider.addEventListener("transitionend", () => {
-    if (c <= -1) c = tot - 1;
-    if (c >= tot) c = 0;
-    anim(0); // quickly switch to "c" slide (with animation duration 0)
-  });
-
-  // Pause on pointer enter:
-  elCarousel.addEventListener("pointerenter", () => stop());
-  elNext.addEventListener("focus", () => stop());
-  elPrev.addEventListener("focus", () => stop());
-  elCarousel.addEventListener("pointerleave", () => play());
-
-  // Init:
-
-  // Insert UI elements:
-  elNavigation.append(...elsBtns);
-  elCarousel.append(elPrev, elNext, elNavigation);
-
-  // Clone first and last slides (for "infinite" slider effect)
-  elCarouselSlider.prepend(elsSlides[tot - 1].cloneNode(true));
-  elCarouselSlider.append(elsSlides[0].cloneNode(true));
-
-  // Initial slide
-  anim();
-
-  // Start autoplay
-  play();
-};
-
-// Allows to use multiple carousels on the same page:
-els(".carousel").forEach(carousel);
-
-  </script> -->
-<!-- 
-        <script src="assets/tarteaucitron/tarteaucitron.js"></script>
-
-        <script type="text/javascript">
-        tarteaucitron.init({
-      "privacyUrl": "", /* Privacy policy url */
-          "bodyPosition": "bottom", /* or top to bring it as first element for accessibility */
-
-    	  "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
-    	  "cookieName": "tarteaucitron", /* Cookie name */
-    
-    	  "orientation": "middle", /* Banner position (top - bottom) */
-       
-          "groupServices": false, /* Group services by category */
-          "serviceDefaultState": "wait", /* Default state (true - wait - false) */
-                           
-    	  "showAlertSmall": false, /* Show the small banner on bottom right */
-    	  "cookieslist": false, /* Show the cookie list */
-                           
-          "closePopup": false, /* Show a close X on the banner */
-
-          "showIcon": true, /* Show cookie icon to manage cookies */
-          //"iconSrc": "", /* Optionnal: URL or base64 encoded image */
-          "iconPosition": "BottomRight", /* BottomRight, BottomLeft, TopRight and TopLeft */
-
-    	  "adblocker": false, /* Show a Warning if an adblocker is detected */
-                           
-          "DenyAllCta" : true, /* Show the deny all button */
-          "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
-          "highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
-                           
-    	  "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
-
-    	  "removeCredit": false, /* Remove credit link */
-    	  "moreInfoLink": true, /* Show more info link */
-
-          "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
-          "useExternalJs": false, /* If false, the tarteaucitron.js file will be loaded */
-
-    	  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
-                          
-          "readmoreLink": "", /* Change the default readmore link */
-
-          "mandatory": true, /* Show a message about mandatory cookies */
-          "mandatoryCta": true /* Show the disabled accept button when mandatory on */
-        });
-        </script> -->
-
+<footer>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
+</footer>
 </body>
 </html>
