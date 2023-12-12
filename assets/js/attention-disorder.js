@@ -9,7 +9,7 @@ function getRandomImageURL() {
     "./assets/img/voisin.png",
     "./assets/img/monkey.png",
     "./assets/img/calc.png",
-    "./assets/img/A11y-baba.png",
+    "./assets/img/A11ybaba.png",
     "./assets/img/alice.png",
     "./assets/img/petit-dej.png",
     "./assets/img/coude.png",
