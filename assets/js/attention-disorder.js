@@ -17,6 +17,9 @@ function getRandomImageURL() {
     "./assets/img/helico.png",
     "./assets/img/nyan-cat.png",
     "./assets/img/impots.png",
+    "./assets/img/grinch-3.png",
+    "./assets/img/game-master.jpg",
+    "./assets/img/woof.png",
   ];
   const randomIndex = Math.floor(Math.random() * imageUrls.length);
   return imageUrls[randomIndex];
@@ -27,7 +30,7 @@ function showOverlay() {
   overlay.style.display = 'flex';
 
   // Générer un délai aléatoire entre 2 et 10 secondes
-  const randomDelay = Math.random() * (10000 - 3000) + 2000;
+  const randomDelay = Math.random() * (5000 - 3000) + 2000;
 
   setTimeout(hideOverlay, randomDelay); // Masquer après le délai aléatoire
 }
@@ -36,7 +39,7 @@ function hideOverlay() {
   overlay.style.display = 'none';
 
   // Générer un délai aléatoire entre 2 et 10 secondes pour réafficher
-  const randomDelay = Math.random() * (10000 - 3000) + 2000;
+  const randomDelay = Math.random() * (5000- 3000) + 2000;
 
   setTimeout(showOverlay, randomDelay); // Afficher à nouveau après le délai aléatoire
 }

@@ -17,8 +17,8 @@ function handleButtonClick(buttonId) {
     if (buttonId === correctSequence[sequenceIndex]) {
         sequenceIndex++;
         if (sequenceIndex === correctSequence.length) {
-                // Rediriger l'utilisateur vers la nouvelle URL
-                window.location.href = '2-1-simulation-visuel.html';
+            // Rediriger l'utilisateur vers la nouvelle URL
+            window.location.href = '2-1-simulation-visuel.html';
         }
     } else {
         invalidSequence();
@@ -28,11 +28,12 @@ function handleButtonClick(buttonId) {
 // Fonction pour gérer une séquence incorrecte
 function invalidSequence() {
     resetSequence();
-    messageInvalidDiv.textContent = 'hop la, mauvaise couleur ! faut suivre les instructions voyons !!...';
-    // Supprimer le message d'erreur après 5 secondes
+    messageInvalidDiv.textContent = 'non non, mauvaise couleur ! faut suivre les instructions voyons !!...';
+
+    // Supprimer le message d'erreur et masquer l'image après 1.5 seconde
     setTimeout(() => {
         messageInvalidDiv.textContent = '';
-    }, 2000); // Le message d'erreur sera supprimé après 5 secondes
+    }, 1500); // Le message d'erreur et l'image seront supprimés/masqués après 1.5 seconde
 }
 
 // Ajouter un gestionnaire d'événement à chaque bouton
@@ -44,5 +45,5 @@ buttons.forEach(button => {
     });
 });
 
-// Réinitialiser la séquence au chargement de la page
-resetSequence(); // Réinitialise sans afficher de message d'erreur initial
+// Initialiser l'état initial (masquer l'image)
+resetSequence();

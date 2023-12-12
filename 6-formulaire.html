@@ -151,9 +151,11 @@
             opacity: 0;
         }
 
+
         </style>
 </head>
 <body>
+<div class="custom-cursor"></div>
 <div class="tooltip-header">
   <div class="tooltip">
     <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Vous êtes mal-voyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient du coup un challenge... encore plus quand des infobulles non accessible s'invitent à la fête.<br> votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>la suite au prochain élément, vers la droite.<br>--></span>
@@ -179,7 +181,7 @@
   <div class="form-container"></div>
   <form>
     <div>
-    <label  for="reponse_1">Réponse 1:</label>
+    <label  for="reponse_1">Question:</label>
     <div class="tooltip">
       <span class="tooltiptext" aria-label="information sur le champ de formulaire nom">Super facile, il suffit d'indiquer dans le champ de formlaire, le résultat de cette devinette:<br>- Je suis vert quand l'hiver vient<br>- Mon sourire le plus chaleureux donne un coup de froid<br>- J'ai des cadeaux plein les bras, mais on ne m'aime pas pour ça</span>
       <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
@@ -188,20 +190,12 @@
     </div>
 
     <div>
-      <label  for="reponse_2">Réponse 2:</label>
+      <label  for="reponse_2">Question:</label>
       <div class="tooltip">
         <span class="tooltiptext" id="bottom" style="top:50px;" aria-label="information sur le champ de formulaire mail">Quoi mettre dans ce champ ? ... la réponse est simple également.<br>si seulement ce message voulait bien arrêter de disparaitre...<br>il doit y avoir un indice dans ce message c'est sur !<br> <br>Aller... je pense que tout le monde a dû dézoomer maintenant...<br>ce champ n'est pas obligatoire en fait :p</span>
         <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
       </div>
       <input class="form-input" type="text" id="reponse_2" aria-label="Réponse attendu 2" name="reponse_2" required>
-      </div>
-
-      <div>
-        <label  for="reponse_3">Réponse 3:</label>
-        <div class="tooltip">
-          <img src="./assets/img/tooltip.png" alt="" title='"0k"' width="32" height="32">
-        </div>
-        <input class="form-input" type="text" id="reponse_3" aria-label="email" name="reponse_3" required>
       </div>
 
 </form>

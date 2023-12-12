@@ -67,6 +67,20 @@
           font-size: 10px;
           text-align: center;
         }
+
+        .animated-image {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: transform 1s ease-out;
+        opacity: 0; /* L'image est initialement invisible */
+        }
+
+        .animated-image.show {
+        transform: translateX(-50%) translateY(-10%);
+        opacity: 1; /* Rendre l'image visible pendant l'animation */
+        }
     </style>
   <script  src="./assets/js/carousel.js"></script>
 
@@ -90,10 +104,22 @@
                 <li>Le jeu a déjà commencé ...</li>
 				<li>Pour mettre tout le monde au même niveau, l'utilisation des DevTools sera à oublier. On vous fait confiance.</li>
             </ul>
-        <button class="button">Pour commencer, cliquez sur le lien : ici.</button>
+ 
+            <button class="button" onclick="startAnimation()">Pour commencer, cliquez sur le lien : ici.</button>
 
-        <script src="./assets/js/timer.js"></script>
+            <img src="./assets/img/grinch-2.png" alt="Image à animer" class="animated-image" id="animatedImage">
         </div>
+        <script>
+function startAnimation() {
+  const animatedImage = document.getElementById('animatedImage');
+  animatedImage.classList.add('show');
+
+  // Retarder la disparition de l'image de 2 secondes
+  setTimeout(function() {
+    animatedImage.classList.remove('show');
+  }, 2000);
+}
+        </script>
 <footer>
     <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
 </footer>
