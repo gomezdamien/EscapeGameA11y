@@ -42,6 +42,8 @@
         .form-input {
             width: 20%; /* Ajustement de la largeur du champ de formulaire */
             max-width: 40%; /* Assure que la largeur n'excède pas celle du header */
+            display: block !important;
+            text-align: justify !important;
         }
 
         label {
@@ -62,6 +64,10 @@
             margin-top: 10%;
         }
 
+        .form-container {
+          text-align: justify;
+        }
+
         a {
             border: none;
             background-color: rgb(197, 90, 197);
@@ -72,7 +78,6 @@
             margin-top: 20%; /* Ajustement de la marge */
             margin-bottom: 20px; /* Ajustement de la marge */
             text-decoration: none;
-            transform: scale(2);
         }
 
         footer {
@@ -83,7 +88,6 @@
     /* Style pour la tooltip */
     .tooltip {
       position: relative;
-      bottom:50px;
       display: inline-block;
       cursor: help;
     }
@@ -100,7 +104,6 @@
       z-index: 1;
       width: max-content;
       max-width: 300px;
-
     }
 
     .tooltip:hover .tooltiptext {
@@ -109,14 +112,14 @@
     }
 
     #bottom {
-      top: 25px;
+      top: 30px;
       left: -50%;
     }
 
     #right {
-  top: -8px;
-  left: 120%;
-}
+      top: -8px;
+      right: 100%;
+    }
 
     #left {
       top: -8px;
@@ -153,7 +156,7 @@
 <body>
 <div class="tooltip-header">
   <div class="tooltip">
-    <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Vous êtes mal-voyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient du coup un challenge... encore plus quand des infobulles non accessible s'invite à la fête.<br> votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>la suite au prochain élément, vers la droite.<br>--></span>
+    <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Vous êtes mal-voyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient du coup un challenge... encore plus quand des infobulles non accessible s'invitent à la fête.<br> votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>la suite au prochain élément, vers la droite.<br>--></span>
     <img src="./assets/img/tooltip-white.png" alt="" width="32" height="32">
   </div>
 </div>
@@ -169,6 +172,10 @@
       <img src="./assets/img/tooltip-white.png" style="margin-left:400px !important;" alt="" width="32" height="32">
     </div>
   </div>
+  <div class="tooltip" style="margin-left: 50% !important;">
+    <span class="tooltiptext" id="right" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Dernier petit point.<br>N'oubliez pas, tout est gros par ici, il va falloir un peu voyager pour trouver les champs de formulaire ...<br>La suite ce trouve au prochain élément, à gauche<br><--</span>
+    <img src="./assets/img/tooltip.png"  alt="" width="32" height="32">
+  </div>
   <div class="form-container"></div>
   <form>
     <div>
@@ -183,7 +190,7 @@
     <div>
       <label  for="reponse_2">Réponse 2:</label>
       <div class="tooltip">
-        <span class="tooltiptext" id="bottom" style="top:50px;" aria-label="information sur le champ de formulaire mail">Quoi mettre dans ce champ ? ... la réponse est simple également pourtant il y a peut être un loup la dessous<br>...<br>ou un grinch<br>A mon avis le maitre du jeu a pas dû laisser un champ de formulaire libre comme ça,<br>il doit y avoir un indice dans ce message c'est sur,<br>si seulement ce message voulait bien arrêter de se refermer... <br>Aller, je pense que tout le monde a dû dézoomer maintenant...<br>Il faut juste mettre son email en fait :)</span>
+        <span class="tooltiptext" id="bottom" style="top:50px;" aria-label="information sur le champ de formulaire mail">Quoi mettre dans ce champ ? ... la réponse est simple également.<br>si seulement ce message voulait bien arrêter de disparaitre...<br>il doit y avoir un indice dans ce message c'est sur !<br> <br>Aller... je pense que tout le monde a dû dézoomer maintenant...<br>ce champ n'est pas obligatoire en fait :p</span>
         <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
       </div>
       <input class="form-input" type="text" id="reponse_2" aria-label="Réponse attendu 2" name="reponse_2" required>
