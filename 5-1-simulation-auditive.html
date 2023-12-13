@@ -47,8 +47,9 @@
             padding: 10px 20px;
             font-size: 24px;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 10px;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .invalid {
@@ -62,7 +63,6 @@
 
       
       .form-container {
-          text-align: justify;
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
@@ -90,12 +90,11 @@
       <iframe width="560" height="315" src="https://www.youtube.com/embed/BMB_REWQHy4?si=uFhkz3-Vax4JQMgl" title="vidéo youtube - énigme auditive" frameborder="0" allow="picture-in-picture"></iframe>
       <div class="form-container">
         <form id="myForm">
-          <label >Réponse <input class="form-input" type="text" id="reponse" aria-label="reponse"></label>
+          <label for>Réponse :</label>
+          <input class="form-input" type="text" id="reponse" aria-label="reponse">
         </form>
+        <button onclick="window.location='./6-formulaire'" style="display:inline-block;" aria-label="valider" id="valider" disabled>Valider</button>
       </div>
-    </div>
-    <div>
-      <button onclick="window.location='./6-formulaire'" aria-label="valider" id="valider" disabled>Valider</button>
     </div>
     <script>
     const formInputs = document.querySelectorAll('.form-input');
