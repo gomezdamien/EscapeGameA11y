@@ -195,7 +195,7 @@
         <span class="tooltiptext" id="bottom" style="top:50px;" aria-label="information sur le champ de formulaire mail">Quoi mettre dans ce champ ? ... la réponse est simple également.<br>si seulement ce message voulait bien arrêter de disparaitre...<br>il doit y avoir un indice dans ce message c'est sur !<br> <br>Aller... je pense que tout le monde a dû dézoomer maintenant...<br>ce champ n'est pas obligatoire en fait :p</span>
         <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
       </div>
-      <input class="form-input" type="text" id="reponse_2" aria-label="Réponse attendu 2" name="reponse_2" required>
+      <input class="form-input" type="text" id="reponse_2" aria-label="Réponse attendu 2" name="reponse_2">
       </div>
 
 </form>
@@ -218,9 +218,8 @@
 
       function validateForm() {
           const reponse_1 = document.getElementById('reponse_1').value.toLowerCase();
-          const reponse_3 = document.getElementById('reponse_3').value;
 
-          if (reponse_1 === 'grinch' && reponse_3 === 'ok') {
+          if (reponse_1 === 'grinch') {
               nextButton.classList.remove('invalid');
               nextButton.classList.add('valid');
               nextButton.removeAttribute('disabled');
