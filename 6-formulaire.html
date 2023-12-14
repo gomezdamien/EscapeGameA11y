@@ -75,8 +75,8 @@
             border-radius: 20px;
             padding: 10px 20px;
             text-align: center !important;
-            margin-top: 20%; /* Ajustement de la marge */
-            margin-bottom: 20px; /* Ajustement de la marge */
+            margin-top: 20%;
+            margin-bottom: 20%;
             text-decoration: none;
         }
 
@@ -112,7 +112,7 @@
     }
 
     #bottom {
-      top: 30px;
+      top: -8px;
       left: -50%;
     }
 
@@ -151,6 +151,9 @@
             opacity: 0;
         }
 
+        .label-container {
+          padding-bottom: 20%;
+        }
 
         </style>
 </head>
@@ -180,7 +183,7 @@
   </div>
   <div class="form-container"></div>
   <form>
-    <div>
+    <div class="label-container">
     <label  for="reponse_1">Question:</label>
     <div class="tooltip">
       <span class="tooltiptext" aria-label="information sur le champ de formulaire nom">Super facile, il suffit d'indiquer dans le champ de formlaire, le résultat de cette devinette:<br>- Je suis vert quand l'hiver vient<br>- Mon sourire le plus chaleureux donne un coup de froid<br>- J'ai des cadeaux plein les bras, mais on ne m'aime pas pour ça</span>
@@ -192,11 +195,11 @@
     <div>
       <label  for="reponse_2">Question:</label>
       <div class="tooltip">
-        <span class="tooltiptext" id="bottom" style="top:50px;" aria-label="information sur le champ de formulaire mail">Quoi mettre dans ce champ ? ... la réponse est simple également.<br>si seulement ce message voulait bien arrêter de disparaitre...<br>il doit y avoir un indice dans ce message c'est sur !<br> <br>Aller... je pense que tout le monde a dû dézoomer maintenant...<br>ce champ n'est pas obligatoire en fait :p</span>
+        <span class="tooltiptext" id="bottom" style="top:80px;" aria-label="information sur le champ de formulaire mail">Quoi mettre dans ce champ ? ... la réponse est simple également.<br>si seulement ce message voulait bien arrêter de disparaitre...<br>il doit y avoir un indice dans ce message c'est sur !<br> <br>Aller... je pense que tout le monde a dû dézoomer maintenant...<br>ce champ n'est pas obligatoire en fait :p</span>
         <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
       </div>
       <input class="form-input" type="text" id="reponse_2" aria-label="Réponse attendu 2" name="reponse_2">
-      </div>
+    </div>
 
 </form>
 <div class="link-container">
