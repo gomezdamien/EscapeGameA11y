@@ -61,7 +61,7 @@
         margin-top: 20px;
       }
 
-      
+
       .form-container {
             max-width: 400px;
             margin: 0 auto;
@@ -109,7 +109,7 @@
     function validateForm() {
         const reponse = document.getElementById('reponse').value.toLowerCase();
 
-        if (reponse === 'clair de lune' || reponse === 'sonate au clair de lune' || reponse === 'sonate 14') {
+        if (reponse.toLowerCase() === 'ludwig van beethoven' || reponse.toLowerCase() === 'beethoven' || reponse.toLowerCase() === 'clair de lune' || reponse.toLowerCase() === 'sonate au clair de lune' || reponse.toLowerCase() === 'sonate 14') {
             nextLink.classList.remove('invalid');
             nextLink.classList.add('valid');
             nextLink.removeAttribute('disabled');
