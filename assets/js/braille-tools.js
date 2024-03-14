@@ -1,43 +1,44 @@
-/* 
+/*
   Braille-Tools
   (c) 2016 Olivier Giulieri
-  https://github.com/evoluteur/braille-tools 
+  https://github.com/evoluteur/braille-tools
 */
 
 var br = {
-    braille: function (message) { 
-        var txt=''; 
-        var myChar, prevCharNum, inQuote 
+    braille: function (message) {
+        var txt='';
+        var myChar, prevCharNum, inQuote
 
         function BrailleChar(bPix, bAlt) {
-            return '<div class="br br-'+bPix+'" title="'+bAlt+'"></div>'
+            console.debug("caractère braille :", bAlt);
+            return '<div class="br br-'+bPix+'" title="utilise uniquement le clavier"></div>'
         }
 
         for (var i=0; i<message.length; i++) {
             myChar = message.charAt(i);
             if ((myChar>="a") && (myChar<="z")) { // a to z
                     txt+=BrailleChar(myChar, myChar);
-                    prevCharNum = false;            
+                    prevCharNum = false;
             } else if((myChar>="A") && (myChar<="Z")) { // A to Z
                     txt+=BrailleChar("cap", "Caps")+BrailleChar(myChar, myChar);
-                    prevCharNum = false;         
+                    prevCharNum = false;
             } else if((myChar>"0") && (myChar<="9")) {
                     if (!prevCharNum){
                             txt+=BrailleChar("num", "Number");
-                    } 
-                    txt+=BrailleChar(String.fromCharCode(myChar.charCodeAt(0) + 48), myChar); 
-                    prevCharNum = true;            
+                    }
+                    txt+=BrailleChar(String.fromCharCode(myChar.charCodeAt(0) + 48), myChar);
+                    prevCharNum = true;
             } else {
                 switch (myChar) {
-                    case " ": 
+                    case " ":
                         txt+=BrailleChar("sp", "Space");
                         prevCharNum = false;
                         break;
                     case "0":
                         if (!prevCharNum){
-                            txt+=BrailleChar("num", "Number"); 
+                            txt+=BrailleChar("num", "Number");
                         }
-                        txt+=BrailleChar("j", "0");      
+                        txt+=BrailleChar("j", "0");
                         prevCharNum = true;
                         break;
                     case "\n":
@@ -47,10 +48,10 @@ var br = {
                         break;
                     case ".":
                         if (prevCharNum){
-                            txt+=BrailleChar("dec", "."); 
+                            txt+=BrailleChar("dec", ".");
                         }
                         else{
-                            txt+=BrailleChar("period", ".");  
+                            txt+=BrailleChar("period", ".");
                         }
                         break;
                     case "$":
@@ -62,7 +63,7 @@ var br = {
                         prevCharNum = false;
                         break;
                     case "'":
-                        txt+=BrailleChar("qs", "'"); 
+                        txt+=BrailleChar("qs", "'");
                         prevCharNum = false;
                         break;
                     case ",":
@@ -70,31 +71,31 @@ var br = {
                         prevCharNum = false;
                         break;
                     case "?":
-                        txt+=BrailleChar("qu", "?"); 
+                        txt+=BrailleChar("qu", "?");
                         prevCharNum = false;
                         break;
                     case "(":
                     case ")":
-                        txt+=BrailleChar("par", "parenthesis"); 
+                        txt+=BrailleChar("par", "parenthesis");
                         prevCharNum = false;
                         break;
                     case "*":
-                        txt+=BrailleChar("ast", "*")+BrailleChar("ast", "*"); 
+                        txt+=BrailleChar("ast", "*")+BrailleChar("ast", "*");
                         prevCharNum = false;
                         break;
                     case "//":
-                        txt+=BrailleChar("sla", "//"); 
+                        txt+=BrailleChar("sla", "//");
                         prevCharNum = false;
                         break;
                     case "!":
-                        txt+=BrailleChar("ex", "!"); 
+                        txt+=BrailleChar("ex", "!");
                         prevCharNum = false;
                         break;
-                    case "'": 
+                    case "'":
                         if (inQuote)
-                            txt+=BrailleChar("qc", "Close Quote"); 
+                            txt+=BrailleChar("qc", "Close Quote");
                         else
-                            txt+=BrailleChar("qo", "Open Quote");  
+                            txt+=BrailleChar("qo", "Open Quote");
                         inQuote = !inQuote;
                         prevCharNum = false;
                         break;
@@ -103,14 +104,14 @@ var br = {
                         prevCharNum = false;
                         break;
                     case ";":
-                        txt+=BrailleChar("sc", ";"); 
+                        txt+=BrailleChar("sc", ";");
                         prevCharNum = false;
                         break;
                     case "[":
                         txt+=BrailleChar("cap", "[")+BrailleChar("par", "");
                         break;
                     case "]":
-                        txt+=BrailleChar("par", "]")+BrailleChar("qs", ""); 
+                        txt+=BrailleChar("par", "]")+BrailleChar("qs", "");
                         break;
                 }
             }
@@ -123,7 +124,7 @@ var br = {
             char;
         for(var i=97;i<123;i++){
             char=String.fromCharCode(i);
-            alpha+='<div><span>'+char+'</span><div class="br br-'+char+'"></div></div>'; 
+            alpha+='<div><span>'+char+'</span><div class="br br-'+char+'"></div></div>';
         }
         return alpha+'</div>';
     }
