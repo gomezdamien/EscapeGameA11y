@@ -90,12 +90,12 @@
       function updateTextBloc(event) {
         var target = event.target;
         var accessibleName = target.getAttribute('aria-label') || target.innerText || target.value || '';
-        
+
         if(target.getAttribute("class") == "form-input"){
           textBloc.innerHTML = br.braille(accessibleName);
         }
         else textBloc.innerHTML = accessibleName;
-        
+
       }
 
       document.addEventListener('focusin', updateTextBloc);
@@ -103,7 +103,7 @@
         textBloc.innerHTML = '';
       });
     });
-  </script>  
+  </script>
 <body>
     <div class="form-container">
         <h1>2.1 - Expérience non Visuelle</h1>
@@ -119,9 +119,9 @@
         <a href="">...enfin...</a>
         <a href="">Il ne reste qu'à savoir QUOI rentrer ...</a>
         <a href="">et où ...?</a>
-        <a href="">Allez je suis sympa, je vais laisser un libellé sur les champs de formulaire.</a>
+        <a href="">Allez ! je suis sympa, je vais laisser un libellé sur les champs de formulaire.</a>
         <a href="">Sous quel format par contre... il ne va pas falloir être trop pointilleux :)</a>
-        <a href="">Et puis, si il devait y avoir des dates, ce serait au format jj/mm/aaaa ... ça c'est sur.</a>
+        <a href="">Et puis, s'il devait y avoir des dates, ce serait au format jj/mm/aaaa ... ça c'est sûr.</a>
         <a href="">Énigme :</a>
         <a href="">Moi, Louis, j'ai dû travailler de toutes mes forces pour que mon handicap ne m'entrave pas</a>
         <a href="">(mon père me disait que j'avais le cuir épais)</a>
